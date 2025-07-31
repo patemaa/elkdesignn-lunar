@@ -4,7 +4,7 @@
             <h1 class="text-3xl font-extrabold sm:text-5xl">
                 Welcome to the
 
-                <span class="text-indigo-600">
+                <span class="text-red-900">
                     Lunar
                 </span>
 
@@ -16,10 +16,24 @@
                 </span>
             </h1>
 
-            <p class="bg-red-500">
+            <p class="bg-rose-800">
                 This is an example of a classic e-commerce store built with Lunar.
                 We are currently making a screencast series to show you how we did it!
             </p>
+
+
+            <div class="flex items-center gap-4 rounded-lg bg-white p-6 shadow-md outline outline-black/5 dark:bg-gray-800">
+  <span class="inline-flex shrink-0 rounded-full border border-pink-300 bg-pink-100 p-2 dark:border-pink-300/10 dark:bg-pink-400/10">
+    <svg class="size-6 stroke-pink-700 dark:stroke-pink-500"><!-- ... --></svg>
+  </span>
+                <div>
+                    <p class="text-gray-700 dark:text-gray-400">
+                        <span class="font-medium text-gray-950 dark:text-white">Tom Watson</span> mentioned you in
+                        <span class="font-medium text-gray-950 dark:text-white">Logo redesign</span>
+                    </p>
+                    <time class="mt-1 block text-gray-500" datetime="9:37">9:37am</time>
+                </div>
+            </div>
 
             <div class="flex flex-wrap justify-center gap-4 mt-8">
                 <a class="block w-full px-12 py-3 font-medium text-white bg-indigo-600 rounded shadow sm:w-auto active:bg-indigo-500 hover:bg-indigo-700 focus:outline-none focus:ring"
