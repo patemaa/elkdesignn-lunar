@@ -1,5 +1,5 @@
 <section class="bg-white">
-    <div class="max-w-screen-xl px-4 py-32 mx-auto sm:px-6 lg:px-8 lg:py-48">
+    <div class="max-w-(--breakpoint-xl) px-4 py-32 mx-auto sm:px-6 lg:px-8 lg:py-48">
         <div class="max-w-xl mx-auto text-center">
             <span class="text-xs font-medium text-center bg-orange-100 text-orange-700 px-3 py-1.5 rounded-lg">
                 This was a test order

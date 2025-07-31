@@ -1,7 +1,7 @@
 <header class="relative border-b border-gray-100">
-    <div class="flex items-center justify-between h-16 px-4 mx-auto max-w-screen-2xl sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16 px-4 mx-auto max-w-(--breakpoint-2xl) sm:px-6 lg:px-8">
         <div class="flex items-center">
-            <a class="flex items-center flex-shrink-0"
+            <a class="flex items-center shrink-0"
                href="{{ url('/') }}"
                wire:navigate
             >
@@ -30,7 +30,7 @@
 
                 <div x-data="{ mobileMenu: false }">
                     <button x-on:click="mobileMenu = !mobileMenu"
-                            class="grid flex-shrink-0 w-16 h-16 border-l border-gray-100 lg:hidden">
+                            class="grid shrink-0 w-16 h-16 border-l border-gray-100 lg:hidden">
                         <span class="sr-only">Toggle Menu</span>
 
                         <span class="place-self-center">

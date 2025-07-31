@@ -1,5 +1,5 @@
 <section>
-    <div class="max-w-screen-xl px-4 py-12 mx-auto sm:px-6 lg:px-8">
+    <div class="max-w-(--breakpoint-xl) px-4 py-12 mx-auto sm:px-6 lg:px-8">
         <div class="grid items-start grid-cols-1 gap-8 md:grid-cols-2">
             <div class="grid grid-cols-2 gap-4 md:grid-cols-1">
                 @if ($this->image)
