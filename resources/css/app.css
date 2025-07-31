@@ -1,6 +1,5 @@
 @import 'tailwindcss';
 @plugin "daisyui";
-
 @layer components {
     .no-spinner {
         @apply [-moz-appearance:textfield];

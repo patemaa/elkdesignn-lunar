@@ -12,11 +12,7 @@
         name="description"
         content="Example of an ecommerce storefront built with Lunar."
     >
-    {{--<link
-        href="{{ asset('css/app.css') }}"
-        rel="stylesheet"
-    >--}}
-    @vite(['resources/css/app.css'])
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link
         rel="icon"
         href="{{ asset('favicon.svg') }}"
