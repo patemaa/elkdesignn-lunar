@@ -16,7 +16,7 @@
                 </span>
             </h1>
 
-            <p class="mt-4 font-medium sm:leading-relaxed sm:text-xl">
+            <p class="bg-red-500">
                 This is an example of a classic e-commerce store built with Lunar.
                 We are currently making a screencast series to show you how we did it!
             </p>
@@ -35,6 +35,9 @@
                    rel="noopener noreferrer">
                     Demo Store Repo
                 </a>
+
+                <div class="badge badge-primary">Primary</div>
+
             </div>
         </div>
     </div>
