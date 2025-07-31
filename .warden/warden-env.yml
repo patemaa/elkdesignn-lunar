@@ -1,0 +1,21 @@
+services:
+  php-fpm:
+    volumes:
+      - ~/.ssh:/home/www-data/.ssh
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+      - elkdesignn.test:${TRAEFIK_ADDRESS:-0.0.0.0}
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.${WARDEN_ENV_NAME}-vite.tls=true
+      - traefik.http.routers.${WARDEN_ENV_NAME}-vite.priority=3
+      - traefik.http.routers.${WARDEN_ENV_NAME}-vite.rule=Host(`vite.${TRAEFIK_DOMAIN}`)
+      - traefik.http.routers.${WARDEN_ENV_NAME}-vite.service=${WARDEN_ENV_NAME}-vite
+      - traefik.http.services.${WARDEN_ENV_NAME}-vite.loadbalancer.server.port=5173
+  db:
+    command:
+      - mysqld
+      - --max_allowed_packet=1024M #it needed while importing from prod to local
+  nginx:
+    volumes:
+      - ./.warden/nginx/conf.d/custom.conf:/etc/nginx/conf.d/custom.conf
