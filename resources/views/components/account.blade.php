@@ -2,7 +2,7 @@
      x-data="{
          linesVisible: @entangle('linesVisible').live
      }">
-    <button class="grid w-16 h-16 transition border-l border-gray-100 lg:border-l-transparent hover:opacity-75"
+    <button class="p-2 text-black hover:scale-110 transition rounded-md hover:bg-gray-50 mr-4"
             x-on:click="linesVisible = !linesVisible">
         <span class="sr-only">Cart</span>
 
@@ -38,5 +38,35 @@
             </svg>
         </button>
 
+
+        <div class="flex flex-col gap-4 mt-2">
+            @guest
+                <p class="text-sm">Don't have an account?</p>
+                <a
+                   class="inline-block px-4 py-2 text-center rounded-md border border-blue-600 hover:bg-blue-50 cursor-pointer">
+                    Sign Up
+                </a>
+                <p class="text-sm">Already have an account:</p>
+                <a
+                   class="inline-block px-4 py-2 text-center rounded-md bg-blue-600 text-white hover:opacity-90 cursor-pointer">
+                    Sign In
+                </a>
+            @endguest
+
+            @auth
+                <p class="text-sm">Want to end your session?</p>
+                {{--<a
+                   class="inline-block px-4 py-2 text-center rounded-md bg-green-600 text-white hover:opacity-90">
+
+                </a>--}}
+                <form method="POST" >
+                    @csrf
+                    <button type="submit"
+                            class="inline-block px-4 py-2 text-center rounded-md border border-red-500 hover:bg-red-50 w-full cursor-pointer">
+                        Log out
+                    </button>
+                </form>
+            @endauth
+        </div>
     </div>
 </div>

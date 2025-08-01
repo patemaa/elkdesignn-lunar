@@ -1,3 +1,5 @@
+<!-- Image Slider: With Autoplay -->
+<!-- An Alpine.js and Tailwind CSS component by https://pinemix.com -->
 <div
     x-data="{
     // Images array
@@ -12,8 +14,8 @@
     ],
 
     // Image Slider options
-    arrowsNavigation: false,
-    dotsNavigation: false,
+    arrowsNavigation: true,
+    dotsNavigation: true,
     transition: 'fade', // '' for no transition, 'fade', 'slide', 'blur-sm'
     loop: true,
     autoplay: true,
@@ -175,20 +177,68 @@
             </template>
         </div>
         <!-- END Images -->
+
+        <!-- Previous Button -->
+        <button
+            x-cloak
+            x-show="arrowsNavigation && !(!loop && currentIndex === 0)"
+            x-on:click="previous('button')"
+            type="button"
+            class="group absolute -start-1 top-1/2 z-10 flex -translate-y-1/2 items-center rounded-e-md bg-zinc-900/60 py-5 ps-3 pe-2 text-white backdrop-blur-xs transition duration-150 ease-out hover:start-0 hover:bg-zinc-900/90 active:bg-zinc-900/75"
+            aria-label="Previous Image Slide"
+        >
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                class="hi-mini hi-chevron-left inline-block size-5 rtl:rotate-180"
+            >
+                <path
+                    fill-rule="evenodd"
+                    d="M11.78 5.22a.75.75 0 0 1 0 1.06L8.06 10l3.72 3.72a.75.75 0 1 1-1.06 1.06l-4.25-4.25a.75.75 0 0 1 0-1.06l4.25-4.25a.75.75 0 0 1 1.06 0Z"
+                    clip-rule="evenodd"
+                />
+            </svg>
+            <span class="sr-only">Previous</span>
+        </button>
+        <!-- END Previous Button -->
+
+        <!-- Next Button -->
+        <button
+            x-cloak
+            x-show="arrowsNavigation && !(!loop && currentIndex === images.length - 1)"
+            x-on:click="next('button')"
+            type="button"
+            class="group absolute -end-1 top-1/2 z-10 flex -translate-y-1/2 items-center rounded-s-md bg-zinc-900/60 py-5 ps-2 pe-3 text-white backdrop-blur-xs transition duration-150 ease-out hover:end-0 hover:bg-zinc-900/90 active:bg-zinc-900/75"
+            aria-label="Next Image Slide"
+        >
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                class="hi-mini hi-chevron-right inline-block size-5 rtl:rotate-180"
+            >
+                <path
+                    fill-rule="evenodd"
+                    d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z"
+                    clip-rule="evenodd"
+                />
+            </svg>
+            <span class="sr-only">Next</span>
+        </button>
+        <!-- END Next Button -->
     </div>
     <!-- END Image Slider Container -->
     <!-- Content -->
-    <div
-        class="absolute inset-0 z-1 flex flex-col justify-center bg-black/50 text-white"
-    >
-        <div class="relative h-screen">
-            <div class="absolute left-1/2 top-[60%] -translate-x-1/2 -translate-y-1/2 p-2">
-                <h2 class="text-4xl font-bold mb-2 font-poiret">- Trending -</h2>
-                <h1 class="text-8xl font-bold mb-4 font-poiret">Lorem Ipsum</h1>
-                <button class="btn btn-wide uppercase">Explore Now</button>
-            </div>
-        </div>
+    <div class="absolute inset-0 z-1 flex flex-col justify-center bg-black/50 text-white">
+        <div class="absolute left-1/2 top-[60%] -translate-x-1/2 -translate-y-1/2 p-2">
+            <h2 class="text-2xl sm:text-4xl font-bold mb-1 font-poiret">- Trending -</h2>
+            <h1 class="text-4xl sm:text-8xl font-bold mb-1 font-poiret leading-tight overflow-auto">Lorem Ipsum</h1>
+            <button
+                class="uppercase tracking-wide font-medium text-sm sm:text-base md:text-lg px-4 py-2 sm:px-6 sm:py-3 bg-white text-black rounded-md w-full sm:w-auto hover:opacity-90 transition"
+            >
+                Explore Now
+            </button>        </div>
     </div>
     <!-- END Content -->
 </div>
-<!-- END Image Slider: In The Background, Behind Content -->

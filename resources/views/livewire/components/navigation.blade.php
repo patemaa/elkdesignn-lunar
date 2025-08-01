@@ -7,7 +7,10 @@
             >
                 <span class="sr-only">Home</span>
 
-                <x-brand.logo class="w-auto h-6 text-indigo-600" />
+                <div class="flex items-center">
+                    <x-brand.logo class="w-auto h-6 text-indigo-600" />
+                    <p class="font-poiret text-2xl font-extrabold">Elk Design</p>
+                </div>
             </a>
 
             <nav class="hidden lg:gap-4 lg:flex lg:ml-8">

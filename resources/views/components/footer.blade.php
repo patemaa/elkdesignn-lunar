@@ -32,14 +32,33 @@
     </nav>
     <nav>
         <h6 class="footer-title">Social</h6>
-        <a class="link link-hover">Twitter</a>
-        <a class="link link-hover">Instagram</a>
-        <a class="link link-hover">Facebook</a>
-        <a class="link link-hover">GitHub</a>
+        <div class="grid grid-flow-col gap-4">
+            <a href="https://www.instagram.com/" target="_blank">
+                <x-hugeicons-instagram />
+            </a>
+            <a href="https://www.youtube.com/" target="_blank">
+                <x-hugeicons-youtube />
+            </a>
+            <a href="https://www.facebook.com/" target="_blank">
+                <x-hugeicons-facebook-01 />
+            </a>
+            <a href="https://www.x.com/" target="_blank">
+                <x-hugeicons-new-twitter-rectangle />
+            </a>
+            <a href="https://www.pinterest.com/" target="_blank">
+                <x-hugeicons-pinterest />
+            </a>
+            <a href="https://www.tiktok.com/" target="_blank">
+                <x-hugeicons-tiktok />
+            </a>
+            <a href="https://www.reddit.com/" target="_blank">
+                <x-hugeicons-reddit />
+            </a>
+        </div>
     </nav>
 </footer>
 <footer class="footer sm:footer-horizontal footer-center bg-base-300 text-base-content p-4">
     <aside>
-        <p>Copyright ©2025 - All right reserved by Elkdesign</p>
+        <p>Copyright ©2025 - All right reserved by <a href="/">Elkdesign</a></p>
     </aside>
 </footer>
