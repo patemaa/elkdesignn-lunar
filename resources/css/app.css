@@ -1,5 +1,7 @@
 @import 'tailwindcss';
-@plugin "daisyui";
+@plugin "daisyui" {
+    themes: pastel --default, dark --prefersdark;
+}
 @layer components {
     .no-spinner {
         @apply [-moz-appearance:textfield];
@@ -13,4 +15,13 @@
 
 [x-cloak] {
     display: none;
+}
+.poiret-one-regular {
+    font-family: "Poiret One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.font-poiret {
+    font-family: 'Poiret One', sans-serif;
 }

@@ -7,16 +7,12 @@
         <span class="sr-only">Cart</span>
 
         <span class="place-self-center">
-            <svg xmlns="http://www.w3.org/2000/svg"
-                 class="w-4 h-4"
-                 fill="none"
-                 viewBox="0 0 24 24"
-                 stroke="currentColor">
-                <path stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1"
+                 stroke="currentColor" class="size-6 cursor-pointer">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"/>
             </svg>
+
         </span>
     </button>
 
@@ -25,12 +21,12 @@
          x-on:click.away="linesVisible = false"
          x-transition
          x-cloak>
-        <button class="absolute text-gray-500 transition-transform top-3 right-3 hover:scale-110"
+        <button class="absolute text-black transition-transform top-3 right-3 hover:scale-110"
                 type="button"
                 aria-label="Close"
                 x-on:click="linesVisible = false">
             <svg xmlns="http://www.w3.org/2000/svg"
-                 class="w-4 h-4"
+                 class="w-4 h-4 cursor-pointer"
                  fill="none"
                  viewBox="0 0 24 24"
                  stroke="currentColor">

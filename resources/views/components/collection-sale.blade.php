@@ -20,16 +20,41 @@
                 </a>
             </div>
 
+{{--            <div class="mt-8 sm:absolute sm:right-0 sm:top-0 sm:mt-0">--}}
+{{--                <div class="flex flex-col">--}}
+{{--                    @foreach ($this->saleCollectionImages as $imageGroup)--}}
+{{--                        <div class="gap-8 first:flex last:sm:flex last:hidden">--}}
+{{--                            @foreach ($imageGroup as $image)--}}
+{{--                                <img class="object-cover w-48 h-48 rounded-lg lg:h-72 lg:w-72 odd:mt-8"--}}
+{{--                                     src="{{ $image->getUrl('medium') }}"--}}
+{{--                                     loading="lazy" />--}}
+{{--                            @endforeach--}}
+{{--                        </div>--}}
+{{--                    @endforeach--}}
+{{--                </div>--}}
+{{--            </div>--}}
+
+            <?php
+            $images = [
+                'https://www.tashistudio.com/img/cms/Exclusive%20Arrivals_A%20(1).jpg',
+                'https://www.tashistudio.com/img/cms/Exclusive%20Arrivals_A%20(4).jpg',
+                'https://www.tashistudio.com/img/cms/Exclusive%20Arrivals_A%20_-min.jpg',
+                'https://www.tashistudio.com/img/cms/Exclusive%20Arrivals_A%20(2).jpg',
+            ];
+
+            $imageGroups = array_chunk($images, 2);
+            ?>
+
             <div class="mt-8 sm:absolute sm:right-0 sm:top-0 sm:mt-0">
                 <div class="flex flex-col">
-                    @foreach ($this->saleCollectionImages as $imageGroup)
-                        <div class="gap-8 first:flex last:sm:flex last:hidden">
-                            @foreach ($imageGroup as $image)
-                                <img class="object-cover w-48 h-48 rounded-lg lg:h-72 lg:w-72 odd:mt-8"
-                                     src="{{ $image->getUrl('medium') }}"
-                                     loading="lazy" />
-                            @endforeach
-                        </div>
+                    @foreach ($imageGroups as $imageGroup)
+                    <div class="gap-8 first:flex last:sm:flex last:hidden">
+                        @foreach ($imageGroup as $image)
+                        <img class="object-cover w-48 h-48 rounded-lg lg:h-72 lg:w-72 odd:mt-8"
+                             src="{{ $image }}"
+                             loading="lazy" />
+                        @endforeach
+                    </div>
                     @endforeach
                 </div>
             </div>

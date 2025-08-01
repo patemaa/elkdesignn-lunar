@@ -5,7 +5,11 @@ module.exports = {
         './vendor/lunarphp/stripe-payments/resources/views/**/*.blade.php',
     ],
     theme: {
-        extend: {},
+        extend: {
+            fontFamily: {
+                poiret: ['Poiret One', 'sans-serif'],
+            }
+        }
     },
     plugins: [require('@tailwindcss/forms')],
 };
