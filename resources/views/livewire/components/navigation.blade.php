@@ -1,5 +1,5 @@
 <header class="relative border-b border-gray-100">
-    <div class="flex items-center justify-between h-16 px-4 mx-auto max-w-(--breakpoint-2xl) sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-20 px-4 mx-auto max-w-(--breakpoint-2xl) sm:px-6 lg:px-8">
         <div class="flex items-center">
             <a class="flex items-center shrink-0"
                href="{{ url('/') }}"
@@ -26,6 +26,8 @@
             <x-header.search class="max-w-sm mr-4" />
 
             <div class="flex items-center -mr-4 sm:-mr-6 lg:mr-0">
+                <x-account/>
+
                 @livewire('components.cart')
 
                 <div x-data="{ mobileMenu: false }">
