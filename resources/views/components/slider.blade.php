@@ -223,47 +223,8 @@
                 />
             </svg>
             <span class="sr-only">Next</span>
-        </button><button
-            x-cloak
-            x-show="arrowsNavigation && !(!loop && currentIndex === images.length - 1)"
-            x-on:click="next('button')"
-            type="button"
-            class="group absolute end-4 top-1/2 z-10 flex -translate-y-1/2 items-center justify-center rounded-full bg-white/50 size-10 text-zinc-900 backdrop-blur-xs transition duration-150 ease-out hover:bg-white hover:scale-110"
-            aria-label="Next Image Slide"
-        >
-            <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                class="hi-mini hi-chevron-right inline-block size-5"
-            >
-                <path
-                    fill-rule="evenodd"
-                    d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z"
-                    clip-rule="evenodd"
-                />
-            </svg>
-            <span class="sr-only">Next</span>
         </button>
         <!-- END Next Button -->
-
-        <!-- Progress Bar -->
-        <div
-            x-cloak
-            x-show="autoplayProgressBar"
-            class="absolute inset-x-0 bottom-0 z-10 h-1 w-full overflow-hidden"
-            role="progressbar"
-            aria-valuemin="0"
-            aria-valuemax="100"
-            x-bind:aria-valuenow="Math.round(autoplayProgress)"
-            x-bind:aria-valuetext="`${Math.round(autoplayProgress)}% progress to next image slide`"
-        >
-            <div
-                class="h-full bg-teal-500 transition-all duration-100 ease-linear"
-                :style="{ width: `${autoplayProgress}%` }"
-            ></div>
-        </div>
-        <!-- END Progress Bar -->
     </div>
     <!-- END Image Slider Container -->
 
@@ -271,7 +232,7 @@
     <div
         x-cloak
         x-show="dotsNavigation"
-        class="flex flex-wrap justify-center gap-3 py-4"
+        class="absolute bottom-0 inset-x-0 z-20 flex flex-wrap justify-center gap-3 py-4"
     >
         <template x-for="(image, index) in images" x-bind:key="index">
             <button
@@ -279,9 +240,9 @@
                 type="button"
                 class="size-2.5 rounded-full"
                 x-bind:class="{
-          'bg-zinc-700 dark:bg-zinc-300': currentIndex === index,
-          'bg-zinc-200 hover:bg-zinc-300 dark:bg-zinc-700 dark:hover:bg-zinc-600 dark:ring-zinc-800 hover:ring-4 ring-zinc-100': currentIndex !== index
-        }"
+                'bg-zinc-700 dark:bg-zinc-300': currentIndex === index,
+                'bg-zinc-200 hover:bg-zinc-300 dark:bg-zinc-700 dark:hover:bg-zinc-600 dark:ring-zinc-800 hover:ring-4 ring-zinc-100': currentIndex !== index
+            }"
             ></button>
         </template>
     </div>
