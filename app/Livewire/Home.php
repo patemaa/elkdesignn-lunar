@@ -2,10 +2,12 @@
 
 namespace App\Livewire;
 
+use App\Models\Product;
 use Illuminate\View\View;
 use Livewire\Component;
 use Lunar\Models\Collection;
 use Lunar\Models\Url;
+use Livewire\WithPagination;
 
 class Home extends Component
 {
@@ -49,6 +51,14 @@ class Home extends Component
 
         return $collections->inRandomOrder()->first()?->element;
     }
+
+    protected $paginationTheme = 'tailwind';
+
+    public function getAllProductsProperty()
+    {
+        return Product::with('thumbnail')->paginate(24);
+    }
+
 
     public function render(): View
     {

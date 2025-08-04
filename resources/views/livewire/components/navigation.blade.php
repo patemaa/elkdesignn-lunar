@@ -15,7 +15,7 @@
 
             <nav class="hidden lg:gap-4 lg:flex lg:ml-8">
                 @foreach ($this->collections as $collection)
-                    <a class="text-sm font-medium transition hover:opacity-75"
+                    <a class="text-lg  transition hover:opacity-75 font-poiret"
                        href="{{ route('collection.view', $collection->defaultUrl->slug) }}"
                        wire:navigate
                     >

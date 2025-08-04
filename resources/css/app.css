@@ -25,3 +25,32 @@
 .font-poiret {
     font-family: 'Poiret One', sans-serif;
 }
+
+.marquee-up {
+    display: flex;
+    flex-direction: column;
+    animation: scroll-up 14s linear infinite;
+}
+
+.marquee-down {
+    display: flex;
+    flex-direction: column;
+    animation: scroll-down 14s linear infinite;
+}
+
+@keyframes scroll-up {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-50%); }
+}
+
+@keyframes scroll-down {
+    0% { transform: translateY(-50%); }
+    100% { transform: translateY(0); }
+}
+
+.marquee-up:hover,
+.marquee-down:hover {
+    animation-play-state: paused;
+}
+
+

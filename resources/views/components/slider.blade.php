@@ -1,5 +1,3 @@
-<!-- Image Slider: With Autoplay -->
-<!-- An Alpine.js and Tailwind CSS component by https://pinemix.com -->
 <div
     x-data="{
     // Images array
@@ -184,14 +182,14 @@
             x-show="arrowsNavigation && !(!loop && currentIndex === 0)"
             x-on:click="previous('button')"
             type="button"
-            class="group absolute -start-1 top-1/2 z-10 flex -translate-y-1/2 items-center rounded-e-md bg-zinc-900/60 py-5 ps-3 pe-2 text-white backdrop-blur-xs transition duration-150 ease-out hover:start-0 hover:bg-zinc-900/90 active:bg-zinc-900/75"
+            class="group absolute start-4 top-1/2 z-10 flex -translate-y-1/2 items-center justify-center rounded-full bg-white/50 size-10 text-zinc-900 backdrop-blur-xs transition duration-150 ease-out hover:bg-white hover:scale-110"
             aria-label="Previous Image Slide"
         >
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"
                 fill="currentColor"
-                class="hi-mini hi-chevron-left inline-block size-5 rtl:rotate-180"
+                class="hi-mini hi-chevron-left inline-block size-5"
             >
                 <path
                     fill-rule="evenodd"
@@ -209,14 +207,35 @@
             x-show="arrowsNavigation && !(!loop && currentIndex === images.length - 1)"
             x-on:click="next('button')"
             type="button"
-            class="group absolute -end-1 top-1/2 z-10 flex -translate-y-1/2 items-center rounded-s-md bg-zinc-900/60 py-5 ps-2 pe-3 text-white backdrop-blur-xs transition duration-150 ease-out hover:end-0 hover:bg-zinc-900/90 active:bg-zinc-900/75"
+            class="group absolute end-4 top-1/2 z-10 flex -translate-y-1/2 items-center justify-center rounded-full bg-white/50 size-10 text-zinc-900 backdrop-blur-xs transition duration-150 ease-out hover:bg-white hover:scale-110"
             aria-label="Next Image Slide"
         >
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"
                 fill="currentColor"
-                class="hi-mini hi-chevron-right inline-block size-5 rtl:rotate-180"
+                class="hi-mini hi-chevron-right inline-block size-5"
+            >
+                <path
+                    fill-rule="evenodd"
+                    d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z"
+                    clip-rule="evenodd"
+                />
+            </svg>
+            <span class="sr-only">Next</span>
+        </button><button
+            x-cloak
+            x-show="arrowsNavigation && !(!loop && currentIndex === images.length - 1)"
+            x-on:click="next('button')"
+            type="button"
+            class="group absolute end-4 top-1/2 z-10 flex -translate-y-1/2 items-center justify-center rounded-full bg-white/50 size-10 text-zinc-900 backdrop-blur-xs transition duration-150 ease-out hover:bg-white hover:scale-110"
+            aria-label="Next Image Slide"
+        >
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                class="hi-mini hi-chevron-right inline-block size-5"
             >
                 <path
                     fill-rule="evenodd"
@@ -227,18 +246,60 @@
             <span class="sr-only">Next</span>
         </button>
         <!-- END Next Button -->
+
+        <!-- Progress Bar -->
+        <div
+            x-cloak
+            x-show="autoplayProgressBar"
+            class="absolute inset-x-0 bottom-0 z-10 h-1 w-full overflow-hidden"
+            role="progressbar"
+            aria-valuemin="0"
+            aria-valuemax="100"
+            x-bind:aria-valuenow="Math.round(autoplayProgress)"
+            x-bind:aria-valuetext="`${Math.round(autoplayProgress)}% progress to next image slide`"
+        >
+            <div
+                class="h-full bg-teal-500 transition-all duration-100 ease-linear"
+                :style="{ width: `${autoplayProgress}%` }"
+            ></div>
+        </div>
+        <!-- END Progress Bar -->
     </div>
     <!-- END Image Slider Container -->
-    <!-- Content -->
-    <div class="absolute inset-0 z-1 flex flex-col justify-center bg-black/50 text-white">
-        <div class="absolute left-1/2 top-[60%] -translate-x-1/2 -translate-y-1/2 p-2">
-            <h2 class="text-2xl sm:text-4xl font-bold mb-1 font-poiret">- Trending -</h2>
-            <h1 class="text-4xl sm:text-8xl font-bold mb-1 font-poiret leading-tight overflow-auto">Lorem Ipsum</h1>
+
+    <!-- Dots Navigation -->
+    <div
+        x-cloak
+        x-show="dotsNavigation"
+        class="flex flex-wrap justify-center gap-3 py-4"
+    >
+        <template x-for="(image, index) in images" x-bind:key="index">
             <button
-                class="uppercase tracking-wide font-medium text-sm sm:text-base md:text-lg px-4 py-2 sm:px-6 sm:py-3 bg-white text-black rounded-md w-full sm:w-auto hover:opacity-90 transition"
-            >
-                Explore Now
-            </button>        </div>
+                x-on:click="set(index, 'button')"
+                type="button"
+                class="size-2.5 rounded-full"
+                x-bind:class="{
+          'bg-zinc-700 dark:bg-zinc-300': currentIndex === index,
+          'bg-zinc-200 hover:bg-zinc-300 dark:bg-zinc-700 dark:hover:bg-zinc-600 dark:ring-zinc-800 hover:ring-4 ring-zinc-100': currentIndex !== index
+        }"
+            ></button>
+        </template>
     </div>
-    <!-- END Content -->
+
+    <div class="absolute inset-0 z-1 flex flex-col justify-center bg-black/50 text-white">
+        <div class="absolute left-1/4 top-[60%] -translate-x-1/2 -translate-y-1/2 p-2 ml-5">
+            <h2 class="text-xl sm:text-3xl mb-1 font-poiret text-left">Painted with love by <span class="font-semibold ">Elk Design</span></h2>
+            <h1 class="text-3xl sm:text-7xl font-bold mb-1 font-poiret leading-tight overflow-auto text-left">Exquisite Floral Patterns
+                <br>for Designers <br>and Creators</h1>
+            <a href="/" class="flex items-center gap-4 mt-6 group">
+                <span class="text-lg font-bold font-poiret leading-tight">Explore Now</span>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 text-white transition group-hover:translate-x-1">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                </svg>
+            </a>
+        </div>
+    </div>
+
+    <!-- END Dots Navigation -->
 </div>
+<!-- END Image Slider -->
