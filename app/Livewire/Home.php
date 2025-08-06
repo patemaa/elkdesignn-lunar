@@ -6,11 +6,20 @@ use App\Models\Product;
 use Illuminate\View\View;
 use Livewire\Component;
 use Lunar\Models\Collection;
+use Lunar\Models\CollectionGroup;
 use Lunar\Models\Url;
 use Livewire\WithPagination;
 
 class Home extends Component
 {
+    public $collectionGroups;
+
+    public function mount()
+    {
+        $this->collectionGroups = CollectionGroup::with([
+            'collections.products.media'
+        ])->get();
+    }
     /**
      * Return the sale collection.
      */
@@ -38,27 +47,12 @@ class Home extends Component
         return $saleImages->chunk(2);
     }
 
-    /**
-     * Return a random collection.
-     */
-    public function getRandomCollectionProperty(): ?Collection
-    {
-        $collections = Url::whereElementType((new Collection)->getMorphClass());
-
-        if ($this->getSaleCollectionProperty()) {
-            $collections = $collections->where('element_id', '!=', $this->getSaleCollectionProperty()?->id);
-        }
-
-        return $collections->inRandomOrder()->first()?->element;
-    }
-
     protected $paginationTheme = 'tailwind';
 
     public function getAllProductsProperty()
     {
         return Product::with('thumbnail')->paginate(24);
     }
-
 
     public function render(): View
     {

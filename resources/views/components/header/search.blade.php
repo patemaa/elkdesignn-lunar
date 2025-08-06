@@ -18,7 +18,7 @@
            id="search-input"
            type="search"
            placeholder="Search for products"
-           class="h-10 w-0 opacity-0 text-sm border-2 border-gray-100 rounded-lg transition-all duration-300 px-3"
+           class="h-10 w-0 opacity-0 text-sm border-2 border-gray-100 rounded-lg transition-all duration-300 px-3  focus:ring focus:outline-none focus:ring-black"
            value="{{ $this->term }}" />
 </form>
 
@@ -28,15 +28,12 @@
         const searchButton = document.getElementById('search-button');
 
         searchButton.addEventListener('click', function() {
-            // Input'un açık olup olmadığını kontrol eder
             const isOpen = searchInput.classList.contains('w-full');
 
             if (isOpen) {
-                // Eğer açıksa, kapatır
                 searchInput.classList.remove('w-full', 'opacity-100');
                 searchInput.classList.add('w-0', 'opacity-0');
             } else {
-                // Eğer kapalıysa, açar ve odağı input'a verir
                 searchInput.classList.remove('w-0', 'opacity-0');
                 searchInput.classList.add('w-full', 'opacity-100');
                 searchInput.focus();

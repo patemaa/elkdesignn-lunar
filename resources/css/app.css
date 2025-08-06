@@ -1,7 +1,7 @@
 @import 'tailwindcss';
 @import '@splidejs/splide/dist/css/splide.min.css';
 @plugin "daisyui" {
-    themes: pastel --default, dark --prefersdark;
+    themes: lofi --default, dark --prefersdark;
 }
 @layer components {
     .no-spinner {
@@ -55,4 +55,27 @@
     animation-play-state: paused;
 }
 
+#slider2 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 
+#slider2 .splide__slide {
+    position: relative;
+}
+
+#slider2 .splide__slide img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    aspect-ratio: 16 / 9;
+    display: block;
+}
+#slider1 .splide__slide img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    aspect-ratio: 1/1;
+    display: block;
+}

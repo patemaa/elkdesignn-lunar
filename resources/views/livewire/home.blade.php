@@ -1,25 +1,48 @@
 <div class="font-nanum font-extrabold">
     <x-welcome-banner />
 
-    <div class="max-w-(--breakpoint-xl) px-4 py-12 mx-auto space-y-3 sm:px-6 lg:px-8">
-{{--        @if ($this->saleCollection)--}}
-{{--            <x-collection-sale />--}}
-{{--        @endif--}}
+    <livewire:slider />
+
+
+    <div class="max-w-(--breakpoint-2xl) px-4 py-12 mx-auto space-y-3 sm:px-6 lg:px-8">
+        @if ($this->saleCollection)
+            <x-collection-sale />
+        @endif
 
         <section>
-            <div class="text-3xl text-center uppercase mb-4 justify-items-center">
+            <div class="text-3xl text-center uppercase justify-items-center mt-15 mb-5">
                 Collections
             </div>
 
-            <div class="flex flex-wrap justify-center">
-                @foreach ($this->allProducts as $product)
-                    <x-product-card :product="$product" />
+            <div class="grid grid-cols-2">
+                @foreach ($collectionGroups as $group)
+                    @foreach ($group->collections as $collection)
+                        @php
+                            $firstProduct = $collection->products->first();
+                            $imageUrl = $firstProduct?->thumbnail?->getUrl('large');
+                        @endphp
+
+                        <a href="/collections/{{ $collection->defaultUrl?->slug }}" class="block group relative overflow-hidden rounded-xl  aspect-[1/1]">
+                            @if ($imageUrl)
+                                <img src="{{ $imageUrl }}"
+                                     alt="{{ $collection->translate('name') }}"
+                                     class="w-full h-full object-cover transition-transform duration-300 scale-105 group-hover:scale-120" />
+
+                                <div class="absolute inset-0 bg-black/20 hover:bg-black/50 transition duration-300 flex items-center justify-center px-4 text-white text-center">
+                                    <h3 class="text-lg sm:text-6xl font-semibold">{{ $collection->translateAttribute('name') }}</h3>
+                                </div>
+                            @else
+                                <div class="w-full flex items-center justify-center text-gray-500"></div>
+                                <div class="absolute inset-0 bg-black/20 hover:bg-black/50 transition duration-300 flex items-center justify-center px-4 text-white text-center">
+                                    <h3 class="text-lg sm:text-6xl font-semibold">{{ $collection->translateAttribute('name') }}</h3>
+                                </div>
+                            @endif
+                        </a>
+                    @endforeach
                 @endforeach
             </div>
 
-{{--            <div class="mt-8">--}}
-{{--                {{ $this->allProducts->links() }}--}}
-{{--            </div>--}}
         </section>
+            <livewire:slider type="image-slider" />
     </div>
 </div>

@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Collection;
+
 return [
 
     /*
@@ -72,5 +74,7 @@ return [
     'links' => [
         public_path('storage') => storage_path('app/public'),
     ],
-
+    'models' => [
+        'collection' => Collection::class,
+    ],
 ];

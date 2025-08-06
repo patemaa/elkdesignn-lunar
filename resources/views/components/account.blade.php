@@ -43,12 +43,12 @@
             @guest
                 <p class="text-sm">Don't have an account?</p>
                 <a
-                   class="inline-block px-4 py-2 text-center rounded-md border border-blue-600 hover:bg-blue-50 cursor-pointer">
+                   class="inline-block px-4 py-2 text-center rounded-md border border-black hover:bg-blue-50 cursor-pointer">
                     Sign Up
                 </a>
                 <p class="text-sm">Already have an account:</p>
                 <a
-                   class="inline-block px-4 py-2 text-center rounded-md bg-blue-600 text-white hover:opacity-90 cursor-pointer">
+                   class="inline-block px-4 py-2 text-center rounded-md bg-black text-white hover:opacity-90 cursor-pointer">
                     Sign In
                 </a>
             @endguest

@@ -4,7 +4,7 @@
             scrolled = window.scrollY > lastScrollY && window.scrollY > 10;
             lastScrollY = window.scrollY;
         })">
-    <div class="flex items-center justify-between h-20 px-4 mx-auto  sm:px-6 lg:px-8 transition-transform duration-300 ease-in-out bg-white w-full"
+    <div class="flex items-center justify-between h-20 px-4 mx-auto  sm:px-6 lg:px-8 transition-transform duration-300 ease-in-out bg-white/50 w-full"
          :class="{ '-translate-y-full': scrolled, 'translate-y-0': !scrolled }">
         <div class="flex items-center">
             <a class="flex items-center shrink-0"
@@ -31,7 +31,7 @@
         <div class="flex items-center justify-between flex-1 ml-4 lg:justify-end">
             <x-header.search class="max-w-sm mr-4" />
 
-            <div class="flex items-center -mr-4 sm:-mr-6 lg:mr-0">
+            <div class="flex items-center -mr-2 sm:-mr-4 lg:mr-0">
                 <x-account/>
 
                 @livewire('components.cart')

@@ -4,9 +4,9 @@
    href="{{ route('product.view', $product->defaultUrl->slug) }}"
    wire:navigate
 >
-    <div class="overflow-hidden rounded-xl aspect-w-1 aspect-h-1">
+    <div class="overflow-hidden rounded-xl aspect-square">
         @if ($product->thumbnail)
-            <img class="object-cover transition-transform duration-300 scale-105 group-hover:scale-110  w-full h-full" style="height:600px; width:600px;"
+            <img class="object-cover transition-transform duration-300 scale-105 group-hover:scale-110  w-full h-full aspect-w-1 aspect-h-1"
                  src="{{ $product->thumbnail->getUrl('medium') }}"
                  alt="{{ $product->translateAttribute('name') }}" />
         @endif
@@ -26,3 +26,4 @@
 {{--        <x-product-price :product="$product" />--}}
 {{--    </p>--}}
 </a>
+

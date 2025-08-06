@@ -4,7 +4,7 @@
             {{ $this->collection->translateAttribute('name') }}
         </h1>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2">
+        <div class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-3">
             @forelse($this->collection->products as $product)
                 <x-product-card :product="$product" />
             @empty
