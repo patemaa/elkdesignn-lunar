@@ -34,6 +34,8 @@
         {{ $slot }}
     </main>
 
+    <x-image-slider/>
+
     <x-footer />
 
     @livewireScripts

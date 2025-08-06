@@ -17,11 +17,6 @@
                 @endforeach
             </div>
 
-            <div class="border-dashed border-8 h-[400px] w-full bg-red-400 mt-6 items-center justify-center" >
-
-
-            </div>
-
 {{--            <div class="mt-8">--}}
 {{--                {{ $this->allProducts->links() }}--}}
 {{--            </div>--}}
