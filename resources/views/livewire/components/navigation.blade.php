@@ -1,5 +1,11 @@
-<header class="relative border-b border-gray-100">
-    <div class="flex items-center justify-between h-20 px-4 mx-auto max-w-(--breakpoint-2xl) sm:px-6 lg:px-8">
+<header class=" sticky top-0 z-50 border-b border-none font-nanum font-bold"
+        x-data="{ scrolled: false, lastScrollY: 0 }"
+        x-init="lastScrollY = window.scrollY; window.addEventListener('scroll', () => {
+            scrolled = window.scrollY > lastScrollY && window.scrollY > 10;
+            lastScrollY = window.scrollY;
+        })">
+    <div class="flex items-center justify-between h-20 px-4 mx-auto  sm:px-6 lg:px-8 transition-transform duration-300 ease-in-out bg-white w-full"
+         :class="{ '-translate-y-full': scrolled, 'translate-y-0': !scrolled }">
         <div class="flex items-center">
             <a class="flex items-center shrink-0"
                href="{{ url('/') }}"
@@ -7,15 +13,12 @@
             >
                 <span class="sr-only">Home</span>
 
-                <div class="flex items-center">
                     <x-brand.logo class="w-auto h-6 text-indigo-600" />
-                    <p class="font-poiret text-2xl font-extrabold">Elk Design</p>
-                </div>
             </a>
 
             <nav class="hidden lg:gap-4 lg:flex lg:ml-8">
                 @foreach ($this->collections as $collection)
-                    <a class="text-lg  transition hover:opacity-75 font-poiret"
+                    <a class="text-lg  transition hover:opacity-75"
                        href="{{ route('collection.view', $collection->defaultUrl->slug) }}"
                        wire:navigate
                     >

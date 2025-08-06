@@ -1,10 +1,13 @@
-<footer class="footer sm:footer-horizontal bg-base-200 text-base-content p-10 font-bold text-lg">
+<footer class="footer sm:footer-horizontal bg-base-200 text-base-content p-10 text-lg font-nanum font-bold">
 
 </footer>
 
-<footer class="footer sm:footer-horizontal footer-center bg-base-300 text-base-content p-4 font-poiret">
+<footer class="footer sm:footer-horizontal footer-center bg-base-300 text-base-content font-nanum font-bold">
     <aside class="flex space-x-3">
-        <p>Copyright ©2025 - All right reserved by <a href="/">Elkdesign</a></p>
+        <img src="{{ asset('storage/15/logo-straight.png') }}" alt="Logo" class="h-[100px] w-auto" loading="lazy">
+
+
+        <p>Copyright ©2025 - All right reserved by <a href="/"> Elkdesign</a></p>
 
     <div class="grid grid-flow-col gap-4">
         <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">

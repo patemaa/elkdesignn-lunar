@@ -10,7 +10,7 @@
                     </div>
                 @endif
 
-                <div class="grid grid-cols-2 gap-4 sm:grid-cols-4">
+                <div class="grid grid-cols-2 gap-4 ">
                     @foreach ($this->images as $image)
                         <div class="aspect-w-1 aspect-h-1"
                              wire:key="image_{{ $image->id }}">

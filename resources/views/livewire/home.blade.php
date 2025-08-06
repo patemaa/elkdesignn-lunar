@@ -1,20 +1,25 @@
-<div>
+<div class="font-nanum font-extrabold">
     <x-welcome-banner />
 
     <div class="max-w-(--breakpoint-xl) px-4 py-12 mx-auto space-y-3 sm:px-6 lg:px-8">
-        @if ($this->saleCollection)
-            <x-collection-sale />
-        @endif
+{{--        @if ($this->saleCollection)--}}
+{{--            <x-collection-sale />--}}
+{{--        @endif--}}
 
         <section>
-            <h2 class="text-3xl font-bold text-center font-poiret uppercase">
+            <div class="text-3xl text-center uppercase mb-4 justify-items-center">
                 Collections
-            </h2>
+            </div>
 
-            <div class="grid grid-cols-2">
+            <div class="flex flex-wrap justify-center">
                 @foreach ($this->allProducts as $product)
                     <x-product-card :product="$product" />
                 @endforeach
+            </div>
+
+            <div class="border-dashed border-8 h-[400px] w-full bg-red-400 mt-6 items-center justify-center" >
+
+
             </div>
 
 {{--            <div class="mt-8">--}}

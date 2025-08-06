@@ -135,7 +135,7 @@
       }
     },
   }"
-    class="relative mx-auto w-full max-h-[709px]"
+    class="relative mx-auto w-full max-h-[803px]"
 >
     <!-- Image Slider Container -->
     <div
@@ -146,7 +146,7 @@
     >
         <!-- Images -->
         <div
-            class="aspect-16/10"
+            class="aspect-11/5"
             role="region"
             aria-roledescription="carousel"
             aria-label="Image Slider"
@@ -155,7 +155,7 @@
                 <img
                     x-bind:src="image"
                     x-bind:alt="`Image ${index + 1}`"
-                    class="absolute start-0 top-0 max-h-[709px] w-full object-cover"
+                    class="absolute start-0 top-0 max-h-[803px] w-full object-cover"
                     x-bind:class="{
                         'transition duration-300 ease-in-out will-change-auto': transition,
                         'z-1': currentIndex === index,
@@ -182,14 +182,14 @@
             x-show="arrowsNavigation && !(!loop && currentIndex === 0)"
             x-on:click="previous('button')"
             type="button"
-            class="group absolute start-4 top-1/2 z-10 flex -translate-y-1/2 items-center justify-center rounded-full bg-white/50 size-10 text-zinc-900 backdrop-blur-xs transition duration-150 ease-out hover:bg-white hover:scale-110"
+            class="group absolute sm:start-12 start-6 top-1/2 z-10 flex -translate-y-1/2 items-center justify-center rounded-full bg-white/50 sm:size-15 size-8 text-zinc-900 backdrop-blur-xs transition duration-150 ease-out hover:bg-white hover:scale-110 cursor-pointer"
             aria-label="Previous Image Slide"
         >
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"
                 fill="currentColor"
-                class="hi-mini hi-chevron-left inline-block size-5"
+                class="hi-mini hi-chevron-left inline-block sm:size-7 size-4"
             >
                 <path
                     fill-rule="evenodd"
@@ -207,14 +207,14 @@
             x-show="arrowsNavigation && !(!loop && currentIndex === images.length - 1)"
             x-on:click="next('button')"
             type="button"
-            class="group absolute end-4 top-1/2 z-10 flex -translate-y-1/2 items-center justify-center rounded-full bg-white/50 size-10 text-zinc-900 backdrop-blur-xs transition duration-150 ease-out hover:bg-white hover:scale-110"
+            class="group absolute sm:end-12 end-6 top-1/2 z-10 flex -translate-y-1/2 items-center justify-center rounded-full bg-white/50 sm:size-15 size-8 text-zinc-900 backdrop-blur-xs transition duration-150 ease-out hover:bg-white hover:scale-110 cursor-pointer"
             aria-label="Next Image Slide"
         >
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"
                 fill="currentColor"
-                class="hi-mini hi-chevron-right inline-block size-5"
+                class="hi-mini hi-chevron-right inline-block sm:size-7 size-4"
             >
                 <path
                     fill-rule="evenodd"
@@ -232,7 +232,7 @@
     <div
         x-cloak
         x-show="dotsNavigation"
-        class="absolute bottom-0 inset-x-0 z-20 flex flex-wrap justify-center gap-3 py-4"
+        class="absolute bottom-0 inset-x-0 z-20 flex flex-wrap justify-center gap-3 py-4 cursor-pointer"
     >
         <template x-for="(image, index) in images" x-bind:key="index">
             <button
@@ -247,20 +247,29 @@
         </template>
     </div>
 
-    <div class="absolute inset-0 z-1 flex flex-col justify-center bg-black/50 text-white">
-        <div class="absolute left-1/4 top-[60%] -translate-x-1/2 -translate-y-1/2 p-2 ml-5">
-            <h2 class="text-xl sm:text-3xl mb-1 font-poiret text-left">Painted with love by <span class="font-semibold ">Elk Design</span></h2>
-            <h1 class="text-3xl sm:text-7xl font-bold mb-1 font-poiret leading-tight overflow-auto text-left">Exquisite Floral Patterns
-                <br>for Designers <br>and Creators</h1>
-            <a href="/" class="flex items-center gap-4 mt-6 group">
-                <span class="text-lg font-bold font-poiret leading-tight">Explore Now</span>
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 text-white transition group-hover:translate-x-1">
+    <div class="absolute inset-0 z-1 flex items-center justify-center bg-black/50 text-white px-4">
+        <div class="max-w-4xl">
+            <h2 class="text-lg sm:text-2xl lg:text-3xl mb-2">
+                Painted with love by <span class="font-semibold">Elk Design</span>
+            </h2>
+            <h1 class="text-xl sm:text-5xl lg:text-7xl font-bold leading-tight mb-4">
+                Exquisite Floral Patterns<br>
+                for Designers<br>
+                and Creators
+            </h1>
+            <a href="/" class="hidden sm:inline-flex items-center gap-3 mt-4 group">
+                <span class=" text-3xl font-bold">Explore Now</span>
+                <svg xmlns="http://www.w3.org/2000/svg"
+                     fill="none"
+                     viewBox="0 0 24 24"
+                     stroke-width="2"
+                     stroke="currentColor"
+                     class="w-6 h-7 text-white transition group-hover:translate-x-1">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
                 </svg>
             </a>
         </div>
     </div>
-
     <!-- END Dots Navigation -->
 </div>
 <!-- END Image Slider -->

@@ -16,15 +16,6 @@
 [x-cloak] {
     display: none;
 }
-.poiret-one-regular {
-    font-family: "Poiret One", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-}
-
-.font-poiret {
-    font-family: 'Poiret One', sans-serif;
-}
 
 .marquee-up {
     display: flex;
@@ -46,6 +37,16 @@
 @keyframes scroll-down {
     0% { transform: translateY(-50%); }
     100% { transform: translateY(0); }
+}
+
+.nanum-myeongjo-regular {
+    font-family: "Nanum Myeongjo", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.font-nanum {
+    font-family: "Nanum Myeongjo", serif;
 }
 
 .marquee-up:hover,
