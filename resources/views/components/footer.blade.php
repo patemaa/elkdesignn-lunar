@@ -43,6 +43,9 @@
         <a href="https://www.google.com/search?q=behance" target="_blank" rel="noopener noreferrer">
             <x-hugeicons-behance-02 class="text-black/40 hover:text-black/80 transition duration-300"/>
         </a>
+        <a href="https://www.google.com/search?q=linkedin" target="_blank" rel="noopener noreferrer">
+            <x-hugeicons-linkedin-01 class="text-black/40 hover:text-black/80 transition duration-300"/>
+        </a>
     </div>
     </div>
 </footer>
