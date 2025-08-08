@@ -123,13 +123,13 @@
 
         @if ($this->cart)
             <div class="mt-4 space-y-4 text-center">
-                <button class="block w-full p-3 text-sm font-medium text-blue-800 border border-blue-600 rounded-lg hover:ring-1 hover:ring-blue-600"
+                <button class="block w-full p-3 text-sm font-medium text-black border border-black rounded-lg hover:ring-1 hover:ring-black cursor-pointer transition duration-300"
                         type="button"
                         wire:click="updateLines">
                     Update Cart
                 </button>
 
-                <a class="block w-full p-3 text-sm font-medium text-center text-white bg-blue-600 rounded-lg hover:bg-blue-500"
+                <a class="block w-full p-3 text-sm font-bold text-center text-white bg-black rounded-lg hover:bg-black/80 cursor-pointer duration-300 transition"
                    href="{{ route('checkout.view') }}"
                    wire:navigate
                 >

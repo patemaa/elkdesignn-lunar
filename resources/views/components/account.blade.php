@@ -1,4 +1,4 @@
-<div class="sm:relative"
+<div class="sm:relative hidden lg:flex"
      x-data="{
          linesVisible: @entangle('linesVisible').live
      }">

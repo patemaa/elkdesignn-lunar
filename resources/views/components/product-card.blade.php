@@ -12,18 +12,16 @@
         @endif
     </div>
 
+    <strong class="mt-2 text-sm font-medium">
+        {{ $product->translateAttribute('name') }}
+    </strong>
 
+    <p class="mt-1 text-sm text-gray-600">
+        <span class="sr-only">
+            Price
+        </span>
 
-{{--    <strong class="mt-2 text-sm font-medium">--}}
-{{--        {{ $product->translateAttribute('name') }}--}}
-{{--    </strong>--}}
-
-{{--    <p class="mt-1 text-sm text-gray-600">--}}
-{{--        <span class="sr-only">--}}
-{{--            Price--}}
-{{--        </span>--}}
-
-{{--        <x-product-price :product="$product" />--}}
-{{--    </p>--}}
+        <x-product-price :product="$product" />
+    </p>
 </a>
 

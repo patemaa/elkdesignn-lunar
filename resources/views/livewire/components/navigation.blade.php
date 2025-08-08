@@ -1,4 +1,4 @@
-<header class=" sticky top-0 z-50 border-b border-none font-nanum font-bold"
+<header class=" sticky top-0 z-50 border-b border-none"
         x-data="{ scrolled: false, lastScrollY: 0 }"
         x-init="lastScrollY = window.scrollY; window.addEventListener('scroll', () => {
             scrolled = window.scrollY > lastScrollY && window.scrollY > 10;
@@ -16,9 +16,10 @@
                     <x-brand.logo class="w-auto h-6 text-indigo-600" />
             </a>
 
-            <nav class="hidden lg:gap-4 lg:flex lg:ml-8">
+            <nav
+                class="hidden lg:flex gap-4 absolute left-1/2 transform -translate-x-1/2">
                 @foreach ($this->collections as $collection)
-                    <a class="text-lg  transition hover:opacity-75"
+                    <a class="text-lg transition hover:opacity-75 duration-300 uppercase"
                        href="{{ route('collection.view', $collection->defaultUrl->slug) }}"
                        wire:navigate
                     >
@@ -26,6 +27,7 @@
                     </a>
                 @endforeach
             </nav>
+
         </div>
 
         <div class="flex items-center justify-between flex-1 ml-4 lg:justify-end">
@@ -71,6 +73,10 @@
                                     </a>
                                 </li>
                             @endforeach
+                                <hr>
+                                <li class="flex font-medium text-sm">
+                                    <a href="/login">Login</a>
+                                </li>
                         </ul>
                     </div>
                 </div>

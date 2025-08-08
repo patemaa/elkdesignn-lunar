@@ -51,7 +51,19 @@ class Home extends Component
 
     public function getAllProductsProperty()
     {
-        return Product::with('thumbnail')->paginate(24);
+        return Product::with('thumbnail')->get();
+    }
+
+    public function getAllProductsImagesProperty()
+    {
+        $products = $this->getAllProductsProperty(); // tüm ürünler (with thumbnail)
+
+        $images = $products->map(fn($product) => [
+            'product' => $product,
+            'thumbnail' => $product->thumbnail,
+        ])->filter(fn($item) => $item['thumbnail'] !== null);
+
+        return $images->chunk(ceil($images->count() / 3));
     }
 
     public function render(): View

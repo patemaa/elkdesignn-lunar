@@ -4,6 +4,8 @@ namespace App\Livewire;
 
 use App\Models\Product;
 use Livewire\Component;
+use Illuminate\Support\Carbon;
+use Lunar\Models\Collection as CollectionModel;
 
 class Slider extends Component
 {
@@ -15,9 +17,14 @@ class Slider extends Component
         $this->images = Product::with('thumbnail')
             ->get()
             ->map(function ($product) {
-                return $product->thumbnail?->getUrl('medium');
+                return [
+                    'url'  => $product->thumbnail?->getUrl('medium'),
+                    'name' => $product->translateAttribute('name'),
+                    'year' => Carbon::parse($product->created_at)->year,
+                    'slug' => $product->defaultUrl?->slug,
+                ];
             })
-            ->filter()
+            ->filter(fn ($item) => !empty($item['url']))
             ->values()
             ->toArray();
     }

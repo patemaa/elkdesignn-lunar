@@ -1,4 +1,4 @@
-<div class="font-nanum font-extrabold">
+<div class="font-extrabold">
     <x-welcome-banner />
 
     <livewire:slider />
@@ -28,13 +28,13 @@
                                      alt="{{ $collection->translate('name') }}"
                                      class="w-full h-full object-cover transition-transform duration-300 scale-105 group-hover:scale-120" />
 
-                                <div class="absolute inset-0 bg-black/20 hover:bg-black/50 transition duration-300 flex items-center justify-center px-4 text-white text-center">
-                                    <h3 class="text-lg sm:text-6xl font-semibold">{{ $collection->translateAttribute('name') }}</h3>
+                                <div class="absolute inset-0 bg-black/50 hover:bg-black/10 transition duration-300 flex items-center justify-center px-4 text-white text-center">
+                                    <h3 class="text-lg sm:text-6xl font-semibold uppercase">{{ $collection->translateAttribute('name') }}</h3>
                                 </div>
                             @else
                                 <div class="w-full flex items-center justify-center text-gray-500"></div>
-                                <div class="absolute inset-0 bg-black/20 hover:bg-black/50 transition duration-300 flex items-center justify-center px-4 text-white text-center">
-                                    <h3 class="text-lg sm:text-6xl font-semibold">{{ $collection->translateAttribute('name') }}</h3>
+                                <div class="absolute inset-0 bg-black/20 hover:bg-black/10 transition duration-300 flex items-center justify-center px-4 text-white text-center">
+                                    <h3 class="text-lg sm:text-6xl font-semibold uppercase">{{ $collection->translateAttribute('name') }}</h3>
                                 </div>
                             @endif
                         </a>
