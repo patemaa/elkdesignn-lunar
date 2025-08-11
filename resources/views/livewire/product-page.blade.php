@@ -9,7 +9,7 @@
                              wire:key="image_{{ $image->id }}">
                             <img loading="lazy"
                                  class="object-cover rounded-xl aspect-square h-full w-full cursor-crosshair"
-                                 src="{{ $image->getUrl('large') }}"
+                                 src="{{ $image->getUrl() }}"
                                  alt="{{ $this->product->translateAttribute('name') }}" />
                         </div>
                     @endforeach
@@ -24,13 +24,13 @@
                                     <div class="aspect-w-1 aspect-h-1 overflow-hidden rounded-xl w-full">
                                         <img loading="lazy"
                                              class="object-cover rounded-xl aspect-square h-full w-full cursor-crosshair"
-                                             src="{{ $image->getUrl('large') }}"
+                                             src="{{ $image->getUrl() }}"
                                              alt="{{ $this->product->translateAttribute('name') }}" />
                                     </div>
                                 </div>
                             @endforeach
                         </div>
-                        <div class="swiper-pagination mt-4"></div>
+                        <div class="swiper-pagination"></div>
                     </div>
                 </div>
             </div>
@@ -215,8 +215,7 @@
                 </button>
             </div>
         </div>
-        <img src="{{ asset('storage/21/img.png') }}" alt="Logo" class="h-auto w-full mt-6" loading="lazy">
-
+        <x-features/>
         <x-faq/>
 
         <div class="max-w-(--breakpoint-2xl) mx-auto">

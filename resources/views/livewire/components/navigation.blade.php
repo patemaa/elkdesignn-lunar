@@ -16,10 +16,18 @@
                     <x-brand.logo class="w-auto h-6 text-indigo-600" />
             </a>
 
-            <nav
-                class="hidden lg:flex gap-4 absolute left-1/2 transform -translate-x-1/2">
+            <nav class="hidden lg:flex gap-4 absolute left-1/2 transform -translate-x-1/2">
                 @foreach ($this->collections as $collection)
-                    <a class="text-lg transition hover:opacity-75 duration-300 uppercase"
+                    <a class="
+                        text-lg transition-all duration-300 uppercase relative z-0
+                        after:content-[''] after:absolute after:inset-0
+                        after:-z-10 after:scale-x-0
+                        after:bg-black/80 after:rounded-lg
+                        after:text-white
+                        after:transition-transform after:duration-600
+                        hover:text-white hover:after:scale-x-100
+                        px-3 py-2
+                    "
                        href="{{ route('collection.view', $collection->defaultUrl->slug) }}"
                        wire:navigate
                     >

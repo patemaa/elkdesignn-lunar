@@ -18,15 +18,15 @@
                 @foreach ($collectionGroups as $group)
                     @foreach ($group->collections as $collection)
                         @php
-                            $firstProduct = $collection->products->first();
-                            $imageUrl = $firstProduct?->thumbnail?->getUrl('large');
+                            $randomProduct = $collection->products->random();
+                            $imageUrl = $randomProduct?->thumbnail?->getUrl();
                         @endphp
 
-                        <a href="/collections/{{ $collection->defaultUrl?->slug }}" class="block group relative overflow-hidden rounded-xl  aspect-[1/1]">
+                        <a href="/collections/{{ $collection->defaultUrl?->slug }}" class="block group relative overflow-hidden rounded-xl aspect-[1/1]">
                             @if ($imageUrl)
                                 <img src="{{ $imageUrl }}"
                                      alt="{{ $collection->translate('name') }}"
-                                     class="w-full h-full object-cover transition-transform duration-300 scale-105 group-hover:scale-120" />
+                                     class="w-full h-full object-cover transition-transform duration-600 scale-105 group-hover:scale-120" />
 
                                 <div class="absolute inset-0 bg-black/50 hover:bg-black/10 transition duration-300 flex items-center justify-center px-4 text-white text-center">
                                     <h3 class="text-lg sm:text-6xl font-semibold uppercase">{{ $collection->translateAttribute('name') }}</h3>

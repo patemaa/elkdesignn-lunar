@@ -1,6 +1,6 @@
 <section>
     <div class="max-w-(--breakpoint-xl) px-4 py-12 mx-auto sm:px-6 lg:px-8">
-        <h1 class="text-3xl font-bold text-center mb-10">
+        <h1 class="text-3xl text-center mb-10 uppercase">
             {{ $this->collection->translateAttribute('name') }}
         </h1>
 

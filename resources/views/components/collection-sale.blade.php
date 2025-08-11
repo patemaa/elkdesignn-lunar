@@ -34,7 +34,7 @@
                         @foreach ($column1 as $item)
                             <a href="{{ route('product.view', $item['product']->defaultUrl->slug) }}">
                                 <img class="object-cover w-64 h-64 rounded-lg transition-transform duration-200 hover:scale-105 cursor-pointer"
-                                     src="{{ $item['thumbnail']->getUrl('medium') }}" loading="lazy" />
+                                     src="{{ $item['thumbnail']->getUrl() }}" loading="lazy" />
                             </a>
                         @endforeach
                     </div>
@@ -45,7 +45,7 @@
                         @foreach ($column2 as $item)
                             <a href="{{ route('product.view', $item['product']->defaultUrl->slug) }}">
                                 <img class="object-cover w-64 h-64 rounded-lg transition-transform duration-200 hover:scale-105 cursor-pointer"
-                                     src="{{ $item['thumbnail']->getUrl('medium') }}" loading="lazy" />
+                                     src="{{ $item['thumbnail']->getUrl() }}" loading="lazy" />
                             </a>
                         @endforeach
                     </div>
@@ -56,14 +56,12 @@
                         @foreach ($column3 as $item)
                             <a href="{{ route('product.view', $item['product']->defaultUrl->slug) }}">
                                 <img class="object-cover w-64 h-64 rounded-lg transition-transform duration-200 hover:scale-105 cursor-pointer"
-                                     src="{{ $item['thumbnail']->getUrl('medium') }}" loading="lazy" />
+                                     src="{{ $item['thumbnail']->getUrl() }}" loading="lazy" />
                             </a>
                         @endforeach
                     </div>
                 </div>
-
             </div>
-
         </div>
     </div>
 </section>

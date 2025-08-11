@@ -1,5 +1,8 @@
 @import 'tailwindcss';
 @import '@splidejs/splide/dist/css/splide.min.css';
+@import 'swiper/css';
+@import 'swiper/css/pagination';
+
 @plugin "daisyui" {
     themes: lofi --default, dark --prefersdark;
 }
@@ -38,16 +41,6 @@
 @keyframes scroll-down {
     0% { transform: translateY(-50%); }
     100% { transform: translateY(0); }
-}
-
-.nanum-myeongjo-regular {
-    font-family: "Nanum Myeongjo", serif;
-    font-weight: 400;
-    font-style: normal;
-}
-
-.font-nanum {
-    font-family: "Nanum Myeongjo", serif;
 }
 
 .marquee-up:hover,

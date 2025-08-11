@@ -18,7 +18,7 @@ class Slider extends Component
             ->get()
             ->map(function ($product) {
                 return [
-                    'url'  => $product->thumbnail?->getUrl('medium'),
+                    'url'  => $product->thumbnail?->getUrl(),
                     'name' => $product->translateAttribute('name'),
                     'year' => Carbon::parse($product->created_at)->year,
                     'slug' => $product->defaultUrl?->slug,
