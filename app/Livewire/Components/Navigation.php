@@ -21,6 +21,7 @@ class Navigation extends Component
     protected $queryString = [
         'term',
     ];
+    public $linesVisible = false;
 
     /**
      * Return the collections in a tree.

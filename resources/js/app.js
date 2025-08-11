@@ -194,8 +194,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 50);
     }
 
-    nextBtn.addEventListener('click', () => handleNavClick('next'));
-    prevBtn.addEventListener('click', () => handleNavClick('prev'));
+    if (nextBtn) nextBtn.addEventListener('click', () => handleNavClick('next'));
+    if (prevBtn) prevBtn.addEventListener('click', () => handleNavClick('prev'));
+    if (container) {
+        container.addEventListener('mouseenter', stopAutoSlide);
+        container.addEventListener('mouseleave', () => {
+            if (!isTouch) startAutoSlide();
+        });
+    }
 
     // Indicator clicks
     indicators.forEach((indicator, index) => {
