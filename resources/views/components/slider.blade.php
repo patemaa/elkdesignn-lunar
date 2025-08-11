@@ -240,8 +240,8 @@
                 type="button"
                 class="size-2.5 rounded-full"
                 x-bind:class="{
-                'bg-zinc-700 dark:bg-zinc-300': currentIndex === index,
-                'bg-zinc-200 hover:bg-zinc-300 dark:bg-zinc-700 dark:hover:bg-zinc-600 dark:ring-zinc-800 hover:ring-4 ring-zinc-100': currentIndex !== index
+                'bg-zinc-700': currentIndex === index,
+                'bg-zinc-200 hover:bg-zinc-300 hover:ring-4 ring-zinc-100': currentIndex !== index
             }"
             ></button>
         </template>

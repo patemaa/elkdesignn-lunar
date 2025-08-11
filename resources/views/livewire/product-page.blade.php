@@ -1,4 +1,4 @@
-<section class="bg-neutral-100">
+<section class="bg-neutral-100 min-h-screen">
     <div class="max-w-(--breakpoint-2xl) px-4 py-12 mx-auto sm:px-6 lg:px-12">
         <div class="grid items-start grid-cols-1 gap-8 md:grid-cols-[70%_30%]">
             <div class="grid grid-cols-1 gap-4">
@@ -35,7 +35,7 @@
                 </div>
             </div>
 
-            <div class="py-6 px-6">
+            <div class="py-6 px-6 lg:sticky lg:top-10 bg-white rounded shadow">
                 <div class="flex items-center justify-between">
                     <h1 class="text-5xl">
                         {{ $this->product->translateAttribute('name') }}
@@ -59,62 +59,7 @@
                         <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5"/>
                     </svg>
                 </button>
-                <dialog id="my_modal_2" class="modal">
-                    <div class="modal-box max-w-5xl">
-                        <form method="dialog">
-                            <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-7">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
-                                </svg>
-
-                            </button>
-                        </form>
-                        <p class="py-4">
-                        <div class="container">
-                            <h2>License Options</h2>
-                            <p>
-                                Both license options are suitable for the direct manufacturing and sale of physical products.
-                                Example products: clothing, shoes, notebooks, greeting cards, stickers, mugs, posters,
-                                wallpaper, home decor, etc.
-                            </p>
-
-                            <div>
-                                <div>
-                                    <h3>1. Standard Commercial License</h3>
-                                    <p><strong>Production Limit:</strong> Up to 500 units or 500 sqm of fabric/wallpaper.</p>
-                                    <p><strong>Duration:</strong> Valid for 2 years.</p>
-                                    <p><em>Ideal for limited production or trial projects.</em></p>
-                                </div>
-
-                                <div>
-                                    <h3>2. Extended Commercial License</h3>
-                                    <p><strong>Production Limit:</strong> Unlimited units or unlimited sqm of fabric/wallpaper.</p>
-                                    <p><strong>Duration:</strong> Valid for 3 years.</p>
-                                    <p><em>Suitable for large-scale and continuous production.</em></p>
-                                </div>
-                            </div>
-
-                            <hr>
-
-                            <div>
-                                <h3>Prohibited Use Cases</h3>
-                                <ul>
-                                    <li><strong>Non-Transferable:</strong> The license is for the buyer only. It cannot be transferred to others.</li>
-                                    <li><strong>Digital Products:</strong> Cannot be used on digital platforms (social media, websites, etc.).</li>
-                                    <li><strong>Print On-Demand:</strong> Not allowed on platforms like Zazzle, Redbubble, etc.</li>
-                                    <li><strong>Copyright:</strong> You cannot claim the artwork as your own copyrighted work.</li>
-                                    <li><strong>Resale:</strong> The original or modified versions cannot be resold.</li>
-                                    <li><strong>Intermediaries:</strong> You must be the final manufacturer of the product.</li>
-                                    <li><strong>False Ownership:</strong> You cannot claim authorship of the artwork.</li>
-                                </ul>
-                            </div>
-
-                            <p>
-                                <em>If in doubt about a specific use case, please contact me for written permission.</em>
-                            </p>
-                        </div>
-                    </div>
-                </dialog>
+                    <x-license-terms/>
 
                 <p class="text-xl mt-5">
                     Please choose a license type:
@@ -272,119 +217,7 @@
         </div>
         <img src="{{ asset('storage/21/img.png') }}" alt="Logo" class="h-auto w-full mt-6" loading="lazy">
 
-        <div class="container mx-auto px-4 mt-6">
-            <div class="flex flex-col md:flex-row gap-6">
-                <!-- Sol kısım: Başlık -->
-                <div class="w-full md:w-1/3 text-center md:text-left">
-                    <p class="text-4xl font-bold mt-4">
-                        Frequently Asked Questions
-                    </p>
-                </div>
-
-                <!-- Sağ kısım: Accordionlar -->
-                <div class="w-full md:w-2/3 space-y-4 mt-6 md:mt-0">
-                    <div class="collapse bg-base-100 border border-base-300 rounded-lg">
-                        <input type="radio" name="my-accordion-1" checked />
-                        <div class="collapse-title font-semibold cursor-pointer">
-                            How do I create an account?
-                        </div>
-                        <div class="collapse-content text-sm">
-                            Click the "Sign Up" button at the top right corner and complete the registration form.
-                        </div>
-                    </div>
-
-                    <div class="collapse bg-base-100 border border-base-300 rounded-lg">
-                        <input type="radio" name="my-accordion-1" />
-                        <div class="collapse-title font-semibold cursor-pointer">
-                            What design tools do you support?
-                        </div>
-                        <div class="collapse-content text-sm">
-                            We support Figma, Sketch, Adobe XD, and Photoshop file formats for upload and collaboration.
-                        </div>
-                    </div>
-
-                    <div class="collapse bg-base-100 border border-base-300 rounded-lg">
-                        <input type="radio" name="my-accordion-1" />
-                        <div class="collapse-title font-semibold cursor-pointer">
-                            Can I collaborate with my team on projects?
-                        </div>
-                        <div class="collapse-content text-sm">
-                            Yes, our platform allows real-time collaboration with team members and clients.
-                        </div>
-                    </div>
-
-                    <div class="collapse bg-base-100 border border-base-300 rounded-lg">
-                        <input type="radio" name="my-accordion-1" />
-                        <div class="collapse-title font-semibold cursor-pointer">
-                            How do I reset my password?
-                        </div>
-                        <div class="collapse-content text-sm">
-                            Click "Forgot Password" on the login page and follow the instructions sent to your email.
-                        </div>
-                    </div>
-
-                    <div class="collapse bg-base-100 border border-base-300 rounded-lg">
-                        <input type="radio" name="my-accordion-1" />
-                        <div class="collapse-title font-semibold cursor-pointer">
-                            Is there a free trial available?
-                        </div>
-                        <div class="collapse-content text-sm">
-                            Yes, we offer a 14-day free trial with access to all premium features.
-                        </div>
-                    </div>
-
-                    <div class="collapse bg-base-100 border border-base-300 rounded-lg">
-                        <input type="radio" name="my-accordion-1" />
-                        <div class="collapse-title font-semibold cursor-pointer">
-                            How do I upgrade or cancel my subscription?
-                        </div>
-                        <div class="collapse-content text-sm">
-                            You can manage your subscription from your account settings under "Billing".
-                        </div>
-                    </div>
-
-                    <div class="collapse bg-base-100 border border-base-300 rounded-lg">
-                        <input type="radio" name="my-accordion-1" />
-                        <div class="collapse-title font-semibold cursor-pointer">
-                            Can I export my designs?
-                        </div>
-                        <div class="collapse-content text-sm">
-                            Yes, designs can be exported in multiple formats including PNG, SVG, and PDF.
-                        </div>
-                    </div>
-
-                    <div class="collapse bg-base-100 border border-base-300 rounded-lg">
-                        <input type="radio" name="my-accordion-1" />
-                        <div class="collapse-title font-semibold cursor-pointer">
-                            Do you provide design templates?
-                        </div>
-                        <div class="collapse-content text-sm">
-                            Yes, we offer a library of customizable templates for various design needs.
-                        </div>
-                    </div>
-
-                    <div class="collapse bg-base-100 border border-base-300 rounded-lg">
-                        <input type="radio" name="my-accordion-1" />
-                        <div class="collapse-title font-semibold cursor-pointer">
-                            How do I share my designs with clients?
-                        </div>
-                        <div class="collapse-content text-sm">
-                            You can share a secure link directly from your project dashboard for client review and feedback.
-                        </div>
-                    </div>
-
-                    <div class="collapse bg-base-100 border border-base-300 rounded-lg">
-                        <input type="radio" name="my-accordion-1" />
-                        <div class="collapse-title font-semibold cursor-pointer">
-                            Is my design data secure?
-                        </div>
-                        <div class="collapse-content text-sm">
-                            Absolutely, we use industry-standard encryption and security protocols to protect your data.
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <x-faq/>
 
         <div class="max-w-(--breakpoint-2xl) mx-auto">
             <div class="text-3xl text-center mb-4 justify-items-center font-bold mt-10">

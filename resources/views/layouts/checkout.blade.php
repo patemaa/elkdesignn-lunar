@@ -7,45 +7,38 @@
         name="viewport"
         content="width=device-width, initial-scale=1"
     >
-    <title>Demo Storefront</title>
+    <title>Elk Design</title>
     <meta
         name="description"
         content="Example of an ecommerce storefront built with Lunar."
     >
-    <link
-        href="{{ asset('css/app.css') }}"
-        rel="stylesheet"
-    >
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link
         rel="icon"
-        href="{{ asset('favicon.svg') }}"
+        href="{{ asset('storage/15/logo.png') }}"
     >
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/SlideJS/1.4.1/slidejs.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/SlideJS/1.4.1/jquery.slide.min.js"></script>
     @livewireStyles
-    @stripeScripts
 </head>
 
 <body class="antialiased text-gray-900">
-    <header class="relative border-b border-gray-100">
-        <div class="flex items-center h-16 px-4 mx-auto max-w-(--breakpoint-2xl) sm:px-6 lg:px-8">
-            <a
-                class="flex items-center shrink-0"
-                href="{{ url('/') }}"
-            >
-                <span class="sr-only">Home</span>
+@livewire('components.navigation')
 
-                <x-brand.logo class="w-auto h-6 text-indigo-600" />
-            </a>
-        </div>
-    </header>
+<main>
+    {{ $slot }}
+</main>
 
+<x-footer/>
 
-    <main>
-        {{ $slot }}
-    </main>
-
-    <x-footer />
-
-    @livewireScripts
+@livewireScripts
 </body>
 
 </html>

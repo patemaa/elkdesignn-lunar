@@ -34,7 +34,7 @@
             <x-header.search class="max-w-sm mr-4" />
 
             <div class="flex items-center -mr-2 sm:-mr-4 lg:mr-0">
-                <x-account/>
+{{--                <x-account/>--}}
 
                 @livewire('components.cart')
 
