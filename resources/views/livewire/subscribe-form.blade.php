@@ -3,13 +3,13 @@
         type="email"
         wire:model.defer="email"
         placeholder="Enter your email"
-        class="flex-1 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black dark:bg-gray-900 dark:border-gray-700 dark:text-white"
+        class="flex-1 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 transition duration-300 focus:ring-black dark:bg-gray-900 dark:border-gray-700 dark:text-white"
         required
     >
 
     <button
         type="submit"
-        class="px-6 py-4 bg-black text-white rounded-md hover:bg-gray-800 transition cursor-pointer"
+        class="px-6 py-4 bg-black text-white rounded-md hover:bg-gray-800 cursor-pointer transition duration-300"
     >
         Subscribe
     </button>

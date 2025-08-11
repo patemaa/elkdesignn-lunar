@@ -20,8 +20,9 @@
         <img src="{{ asset('storage/15/logo-straight.png') }}" alt="Logo" class="h-[100px] w-auto" loading="lazy">
 
         <p>
-            <span class="hidden sm:inline">Copyright ©2025 - All rights reserved by </span>
-            <a href="/" class="">Elk Design</a>
+            <span>Copyright ©2025</span>
+            <span class="hidden sm:inline"> - All rights reserved by </span>
+            <a href="/" class="hidden sm:inline">Elk Design</a>
         </p>
 
         <div class="grid grid-flow-col gap-4">
