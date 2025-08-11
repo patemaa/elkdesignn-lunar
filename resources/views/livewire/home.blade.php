@@ -43,6 +43,9 @@
             </div>
 
         </section>
+            <div class="text-3xl text-center mb-4 justify-items-center font-bold mt-10">
+                Creator's Choice
+            </div>
             <livewire:slider type="image-slider" />
     </div>
 </div>

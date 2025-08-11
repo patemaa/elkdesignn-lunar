@@ -1,8 +1,4 @@
 <section>
-    <div class="text-3xl text-center mb-4 justify-items-center font-bold mt-10">
-        Creator's Choice
-    </div>
-
     <div class="swiper" id="slider1">
         <div class="swiper-wrapper">
             @foreach ($images as $image)
