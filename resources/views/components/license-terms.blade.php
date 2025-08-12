@@ -1,16 +1,18 @@
 <dialog id="my_modal_2" class="modal">
     <div class="modal-box max-w-5xl">
         <form method="dialog">
-            <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-7">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
-                </svg>
-
-            </button>
+            <div class="flex">
+                <h2 class="font-bold text-xl">License Options</h2>
+                <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                         stroke="currentColor" class="size-7">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
         </form>
-        <p class="py-4">
-        <div class="container">
-            <h2>License Options</h2>
+        <p class="py-3">
+        <div class="container space-y-5">
             <p>
                 Both license options are suitable for the direct manufacturing and sale of physical products.
                 Example products: clothing, shoes, notebooks, greeting cards, stickers, mugs, posters,
@@ -19,24 +21,26 @@
 
             <div>
                 <div>
-                    <h3>1. Standard Commercial License</h3>
-                    <p><strong>Production Limit:</strong> Up to 500 units or 500 sqm of fabric/wallpaper.</p>
-                    <p><strong>Duration:</strong> Valid for 2 years.</p>
-                    <p><em>Ideal for limited production or trial projects.</em></p>
+                    <h3 class="font-bold">1. Standard Commercial License</h3>
+                    <p>■ Production Limit: Up to 500 units or 500 sqm of fabric/wallpaper.</p>
+                    <p>■ Duration: Valid for 2 years.</p>
+                    <p class="text-sm"><em>Ideal for limited production or trial projects.</em></p>
                 </div>
 
+                <br>
+
                 <div>
-                    <h3>2. Extended Commercial License</h3>
-                    <p><strong>Production Limit:</strong> Unlimited units or unlimited sqm of fabric/wallpaper.</p>
-                    <p><strong>Duration:</strong> Valid for 3 years.</p>
-                    <p><em>Suitable for large-scale and continuous production.</em></p>
+                    <h3 class="font-bold">2. Extended Commercial License</h3>
+                    <p>■ Production Limit: Unlimited units or unlimited sqm of fabric/wallpaper.</p>
+                    <p>■ Duration: Valid for 3 years.</p>
+                    <p class="text-sm"><em>Suitable for large-scale and continuous production.</em></p>
                 </div>
             </div>
 
             <hr>
 
             <div>
-                <h3>Prohibited Use Cases</h3>
+                <p class="text-bold">Prohibited Use Cases</p>
                 <ul>
                     <li><strong>Non-Transferable:</strong> The license is for the buyer only. It cannot be transferred to others.</li>
                     <li><strong>Digital Products:</strong> Cannot be used on digital platforms (social media, websites, etc.).</li>

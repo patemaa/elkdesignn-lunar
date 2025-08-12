@@ -19,7 +19,7 @@
         @endif
 
         @if ($currentStep > $step)
-            <button class="px-5 py-2 text-sm font-medium text-gray-600 rounded-lg hover:bg-gray-100 hover:text-gray-700"
+            <button class="px-5 py-2 text-sm font-medium text-gray-600 rounded-lg hover:bg-gray-100 hover:text-gray-700 cursor-pointer"
                     type="button"
                     wire:click.prevent="$set('currentStep', {{ $step }})">
                 Edit
@@ -207,7 +207,7 @@
 
             @if ($step == $currentStep)
                 <div class="mt-6 text-right">
-                    <button class="px-5 py-3 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-500"
+                    <button class="px-5 py-3 text-sm font-medium text-white bg-black/80 rounded-lg hover:bg-black/70 transition duration-300 cursor-pointer"
                             type="submit"
                             wire:key="submit_btn"
                             wire:loading.attr="disabled"

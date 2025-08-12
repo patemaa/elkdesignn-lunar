@@ -2,44 +2,52 @@ import Swiper from 'swiper';
 import 'swiper/css';
 
 window.Swiper = Swiper;
+
 document.addEventListener('DOMContentLoaded', () => {
-    new Swiper('#slider1', {
-        slidesPerView: 2    ,
-        spaceBetween: 16,
-        loop: true,
-        breakpoints: {
-            1024: { slidesPerView: 3 },
-            768:  { slidesPerView: 2 },
-            480:  { slidesPerView: 1 },
-        },
-    });
+    if (document.getElementById('slider1')) {
+        new Swiper('#slider1', {
+            slidesPerView: 2,
+            spaceBetween: 16,
+            loop: true,
+            breakpoints: {
+                1024: { slidesPerView: 3 },
+                768: { slidesPerView: 2 },
+                480: { slidesPerView: 1 },
+            },
+        });
+    }
 
-    new Swiper('#recentlyViewedSlider', {
-        slidesPerView: 2,
-        spaceBetween: 16,
-        loop: false,
-        breakpoints: {
-            1024: { slidesPerView: 4 },
-            768:  { slidesPerView: 3 },
-            480:  { slidesPerView: 2 },
-        },
-    });
+    if (document.getElementById('recentlyViewedSlider')) {
+        new Swiper('#recentlyViewedSlider', {
+            slidesPerView: 2,
+            spaceBetween: 16,
+            loop: false,
+            breakpoints: {
+                1024: { slidesPerView: 4 },
+                768: { slidesPerView: 3 },
+                480: { slidesPerView: 2 },
+            },
+        });
+    }
 
-    new Swiper('#productImageSlider', {
-        slidesPerView: 1    ,
-        spaceBetween: 10,
-        loop: true,
-        breakpoints: {
-            1024: { slidesPerView: 3 },
-            768:  { slidesPerView: 2 },
-            480:  { slidesPerView: 1 },
-        },
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
-    });
+    if (document.getElementById('productImageSlider')) {
+        new Swiper('#productImageSlider', {
+            slidesPerView: 1,
+            spaceBetween: 10,
+            loop: true,
+            breakpoints: {
+                1024: { slidesPerView: 3 },
+                768: { slidesPerView: 2 },
+                480: { slidesPerView: 1 },
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+        });
+    }
 
+    // Custom slider logic
     const slides = document.querySelectorAll('.slide');
     const nextBtn = document.getElementById('nextBtn');
     const prevBtn = document.getElementById('prevBtn');
@@ -51,10 +59,15 @@ document.addEventListener('DOMContentLoaded', () => {
     let autoSlideInterval;
     let isTouch = false;
 
+    // Exit early if the custom slider elements are not present
+    if (slides.length === 0 || !container || !progressFill) {
+        return;
+    }
+
     // Touch detection
     window.addEventListener('touchstart', () => {
         isTouch = true;
-    }, {once: true});
+    }, { once: true });
 
     // Progressive loading
     setTimeout(() => {
@@ -65,7 +78,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Optimized progress update
     function updateProgress() {
         const progress = ((currentSlide + 1) / slides.length) * 100;
-        progressFill.style.width = `${progress}%`;
+        if (progressFill) {
+            progressFill.style.width = `${progress}%`;
+        }
     }
 
     // Indicator update
@@ -79,6 +94,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Smooth element animation without GSAP
     function animateElement(element, properties, duration = 300, delay = 0) {
         return new Promise((resolve) => {
+            if (!element) {
+                return resolve();
+            }
             setTimeout(() => {
                 element.style.transition = `all ${duration}ms ease`;
                 Object.keys(properties).forEach(prop => {
@@ -98,6 +116,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initial slide animation
     async function animateInitialSlide() {
         const activeSlide = slides[currentSlide];
+        if (!activeSlide) return;
+
         const elements = {
             number: activeSlide.querySelector('.slide-number'),
             title: activeSlide.querySelector('.slide-title'),
@@ -107,11 +127,11 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         // Animate elements sequentially with reduced delays
-        await animateElement(elements.number, {opacity: 1, y: 0}, 400, 0);
-        await animateElement(elements.title, {opacity: 1, y: 0}, 500, 0);
-        await animateElement(elements.desc, {opacity: 1, y: 0}, 400, 0);
-        await animateElement(elements.link, {opacity: 1, y: 0}, 400, 0);
-        animateElement(elements.image, {scale: 1}, 600, 0);
+        await animateElement(elements.number, { opacity: 1, y: 0 }, 400, 0);
+        await animateElement(elements.title, { opacity: 1, y: 0 }, 500, 0);
+        await animateElement(elements.desc, { opacity: 1, y: 0 }, 400, 0);
+        await animateElement(elements.link, { opacity: 1, y: 0 }, 400, 0);
+        animateElement(elements.image, { scale: 1 }, 600, 0);
 
         updateProgress();
         updateIndicators();
@@ -119,14 +139,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Optimized slide transition
     async function goToSlide(slideIndex) {
-        if (slideIndex === currentSlide || isAnimating) return;
+        if (slideIndex === currentSlide || isAnimating || slideIndex < 0 || slideIndex >= slides.length) {
+            return;
+        }
 
         isAnimating = true;
 
         const outgoingSlide = slides[currentSlide];
         const incomingSlide = slides[slideIndex];
 
-        // Get elements
+        if (!outgoingSlide || !incomingSlide) {
+            isAnimating = false;
+            return;
+        }
+
         const outElements = {
             number: outgoingSlide.querySelector('.slide-number'),
             title: outgoingSlide.querySelector('.slide-title'),
@@ -148,6 +174,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Reset incoming elements
         Object.values(inElements).forEach(el => {
+            if (!el) return;
             if (el === inElements.image) {
                 el.style.opacity = '0';
                 el.style.transform = 'scale(1.02)';
@@ -159,10 +186,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Animate out
         const outPromises = Object.values(outElements).map((el, i) => {
+            if (!el) return Promise.resolve();
             if (el === outElements.image) {
-                return animateElement(el, {opacity: 0, scale: 1.05}, 150, i * 10);
+                return animateElement(el, { opacity: 0, scale: 1.05 }, 150, i * 10);
             } else {
-                return animateElement(el, {opacity: 0, y: -15}, 150, i * 10);
+                return animateElement(el, { opacity: 0, y: -15 }, 150, i * 10);
             }
         });
 
@@ -170,17 +198,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Animate in
         const inPromises = Object.values(inElements).map((el, i) => {
+            if (!el) return Promise.resolve();
             if (el === inElements.image) {
-                return animateElement(el, {opacity: 1, scale: 1}, 200, i * 10);
+                return animateElement(el, { opacity: 1, scale: 1 }, 200, i * 10);
             } else {
-                return animateElement(el, {opacity: 1, y: 0}, 200, i * 10);
+                return animateElement(el, { opacity: 1, y: 0 }, 200, i * 10);
             }
         });
 
         await Promise.all(inPromises);
 
         // Cleanup
-        outgoingSlide.classList.remove('active');
+        if (outgoingSlide) {
+            outgoingSlide.classList.remove('active');
+        }
         currentSlide = slideIndex;
         isAnimating = false;
         updateProgress();
@@ -203,6 +234,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (nextBtn) nextBtn.addEventListener('click', () => handleNavClick('next'));
     if (prevBtn) prevBtn.addEventListener('click', () => handleNavClick('prev'));
+
     if (container) {
         container.addEventListener('mouseenter', stopAutoSlide);
         container.addEventListener('mouseleave', () => {
@@ -239,45 +271,51 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Auto slide control
-    container.addEventListener('mouseenter', stopAutoSlide);
-    container.addEventListener('mouseleave', () => {
-        if (!isTouch) startAutoSlide();
-    });
+    if (container) {
+        container.addEventListener('mouseenter', stopAutoSlide);
+        container.addEventListener('mouseleave', () => {
+            if (!isTouch) startAutoSlide();
+        });
+    }
 
     // Touch/swipe handling
-    let touchStart = {x: 0, y: 0, time: 0};
-    let touchEnd = {x: 0, y: 0};
+    let touchStart = { x: 0, y: 0, time: 0 };
+    let touchEnd = { x: 0, y: 0 };
 
-    container.addEventListener('touchstart', (e) => {
-        touchStart.x = e.touches[0].clientX;
-        touchStart.y = e.touches[0].clientY;
-        touchStart.time = Date.now();
-        stopAutoSlide();
-    }, {passive: true});
+    if (container) {
+        container.addEventListener('touchstart', (e) => {
+            touchStart.x = e.touches[0].clientX;
+            touchStart.y = e.touches[0].clientY;
+            touchStart.time = Date.now();
+            stopAutoSlide();
+        }, { passive: true });
+    }
+    if (container) {
+        container.addEventListener('touchmove', (e) => {
+            touchEnd.x = e.touches[0].clientX;
+            touchEnd.y = e.touches[0].clientY;
+        }, { passive: true });
+    }
+    if (container) {
+        container.addEventListener('touchend', () => {
+            const deltaX = touchEnd.x - touchStart.x;
+            const deltaY = Math.abs(touchEnd.y - touchStart.y);
+            const deltaTime = Date.now() - touchStart.time;
 
-    container.addEventListener('touchmove', (e) => {
-        touchEnd.x = e.touches[0].clientX;
-        touchEnd.y = e.touches[0].clientY;
-    }, {passive: true});
-
-    container.addEventListener('touchend', () => {
-        const deltaX = touchEnd.x - touchStart.x;
-        const deltaY = Math.abs(touchEnd.y - touchStart.y);
-        const deltaTime = Date.now() - touchStart.time;
-
-        // Swipe detection
-        if (Math.abs(deltaX) > 50 && deltaY < 100 && deltaTime < 500) {
-            if (deltaX > 0) {
-                handleNavClick('prev');
-            } else {
-                handleNavClick('next');
+            // Swipe detection
+            if (Math.abs(deltaX) > 50 && deltaY < 100 && deltaTime < 500) {
+                if (deltaX > 0) {
+                    handleNavClick('prev');
+                } else {
+                    handleNavClick('next');
+                }
             }
-        }
 
-        if (isTouch) {
-            setTimeout(startAutoSlide, 3000);
-        }
-    }, {passive: true});
+            if (isTouch) {
+                setTimeout(startAutoSlide, 3000);
+            }
+        }, { passive: true });
+    }
 
     // Visibility change handling
     document.addEventListener('visibilitychange', () => {
@@ -297,7 +335,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Preload next image for smoother transitions
     function preloadNextImage() {
         const nextIndex = (currentSlide + 1) % slides.length;
-        const nextImg = slides[nextIndex].querySelector('img');
+        const nextImg = slides[nextIndex]?.querySelector('img');
         if (nextImg && !nextImg.complete) {
             const img = new Image();
             img.src = nextImg.src;
@@ -307,4 +345,3 @@ document.addEventListener('DOMContentLoaded', () => {
     // Preload on slide change
     setInterval(preloadNextImage, 1000);
 });
-

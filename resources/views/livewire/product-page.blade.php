@@ -91,14 +91,11 @@
                     </div>
                 </form>
                 <div class="font-normal">
-                    <p class="mt-6">Upon purchase, you will gain instant access to the layered digital source file for
-                        this
-                        seamless, repeatable pattern.</p>
+                    <p class="mt-6">
+                        Upon purchase, you will gain instant access to the layered digital source file for this seamless, repeatable pattern.</p>
                     <br>
-                    <p>The package includes an ultra high-resolution 6000x6000px layered Photoshop (PSD) file containing
-                        the
-                        repeatable pattern, plus the individual isolated elements in PNG format with a transparent
-                        background.</p>
+                    <p>The package includes an ultra high-resolution 6000x6000px layered Photoshop (PSD) file containing the
+                        repeatable pattern, plus the individual isolated elements in PNG format with a transparent background.</p>
                     <br>
                     <p>You can easily create custom colorways by adjusting the background color. Additionally, all
                         pre-designed colorways displayed here are provided as separate high-quality JPEG files for your

@@ -9,9 +9,9 @@
         <div class="p-6 space-y-4">
             <div class="flex gap-4">
                 <button @class([
-                    'px-5 py-2 text-sm border font-medium rounded-lg',
-                    'text-green-700 border-green-600 bg-green-50' => $paymentType === 'card',
-                    'text-gray-500 hover:text-gray-700' => $paymentType !== 'card',
+                    'px-5 py-2 text-sm border font-medium rounded-lg cursor-pointer',
+                    'text-green-700 border-green-600 bg-green-50 cursor-pointer' => $paymentType === 'card',
+                    'text-gray-500 hover:text-gray-700 cursor-pointer' => $paymentType !== 'card',
                 ])
                         type="button"
                         wire:click.prevent="$set('paymentType', 'card')">
@@ -19,9 +19,9 @@
                 </button>
 
                 <button @class([
-                    'px-5 py-2 text-sm border font-medium rounded-lg',
-                    'text-green-700 border-green-600 bg-green-50' => $paymentType === 'cash-in-hand',
-                    'text-gray-500 hover:text-gray-700' => $paymentType !== 'cash-in-hand',
+                    'px-5 py-2 text-sm border font-medium rounded-lg cursor-pointer',
+                    'text-green-700 border-green-600 bg-green-50 cursor-pointer' => $paymentType === 'cash-in-hand',
+                    'text-gray-500 hover:text-gray-700 cursor-pointer' => $paymentType !== 'cash-in-hand',
                 ])
                         type="button"
                         wire:click.prevent="$set('paymentType', 'cash-in-hand')">
@@ -36,11 +36,11 @@
 
             @if ($paymentType == 'cash-in-hand')
                 <form wire:submit="checkout">
-                    <div class="p-4 text-sm text-center text-blue-700 rounded-lg bg-blue-50">
+                    <div class="p-4 text-sm text-center text-green-700 rounded-lg bg-green-50">
                         Payment is offline, no card details needed.
                     </div>
 
-                    <button class="px-5 py-3 mt-4 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-500"
+                    <button class="px-5 py-3 mt-4 text-sm font-medium text-white bg-black/80 rounded-lg hover:bg-black/70 cursor-pointer duration-300 transition"
                             type="submit"
                             wire:key="payment_submit_btn">
                         <span wire:loading.remove.delay

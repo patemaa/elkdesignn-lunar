@@ -4,7 +4,7 @@
 @import 'swiper/css/pagination';
 
 @plugin "daisyui" {
-    themes: lofi --default, dark --prefersdark;
+    themes: lofi --default;
 }
 @layer components {
     .no-spinner {
