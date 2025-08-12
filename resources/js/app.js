@@ -1,9 +1,5 @@
-// Lunar 🚀
-
 import Swiper from 'swiper';
 import 'swiper/css';
-
-
 
 window.Swiper = Swiper;
 document.addEventListener('DOMContentLoaded', () => {
@@ -15,6 +11,17 @@ document.addEventListener('DOMContentLoaded', () => {
             1024: { slidesPerView: 3 },
             768:  { slidesPerView: 2 },
             480:  { slidesPerView: 1 },
+        },
+    });
+
+    new Swiper('#recentlyViewedSlider', {
+        slidesPerView: 2,
+        spaceBetween: 16,
+        loop: false,
+        breakpoints: {
+            1024: { slidesPerView: 4 },
+            768:  { slidesPerView: 3 },
+            480:  { slidesPerView: 2 },
         },
     });
 

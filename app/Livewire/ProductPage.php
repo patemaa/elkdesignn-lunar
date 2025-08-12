@@ -39,6 +39,8 @@ class ProductPage extends Component
         $this->selectedOptionValues = $this->productOptions->mapWithKeys(function ($data) {
             return [$data['option']->id => $data['values']->first()->id];
         })->toArray();
+
+
     }
 
     /**

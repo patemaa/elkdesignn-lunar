@@ -1,113 +1,39 @@
-<div class="container mx-auto px-4 mt-6">
-    <div class="flex flex-col md:flex-row gap-6">
+<div class="container mx-auto px-4 py-12">
+    <div class="flex flex-col md:flex-row gap-10">
+
         <!-- Sol kısım: Başlık -->
-        <div class="w-full md:w-1/3 text-center md:text-left">
-            <p class="text-4xl font-bold mt-4">
+        <div class="w-full md:w-1/3">
+            <h2 class="text-4xl font-bold leading-snug">
                 Frequently Asked Questions
+            </h2>
+            <p class="mt-4 text-gray-400 text-sm leading-relaxed">
+                Common questions and answers about our artwork and licensing.
             </p>
         </div>
 
-        <!-- Sağ kısım: Accordionlar -->
-        <div class="w-full md:w-2/3 space-y-4 mt-6 md:mt-0">
-            <div class="collapse bg-base-100 border border-base-300 rounded-lg">
-                <input type="radio" name="my-accordion-1" checked />
-                <div class="collapse-title font-semibold cursor-pointer">
-                    How do I create an account?
+        <!-- Sağ kısım: Accordion -->
+        <div class="w-full md:w-2/3 space-y-3">
+            @foreach ([
+                ['q' => 'How does licensing work?', 'a' => 'Standard and Extended Non-exclusive Licensing allows you to use my artwork for your commercial projects under specific terms.'],
+                ['q' => 'Do you offer custom or commissioned work?', 'a' => 'No, I do not offer custom work at this time.'],
+                ['q' => 'What types of projects can I use the licensed artwork for?', 'a' => 'The licensed artwork can be used for a variety of commercial projects.'],
+                ['q' => 'Are there restrictions on how I can use the artwork?', 'a' => 'Yes, there are restrictions such as no resale or sublicensing as-is.'],
+                ['q' => 'What file formats do you provide?', 'a' => 'Ultra high-resolution PSD, JPEG, and PNG formats in RGB color mode.'],
+                ['q' => 'Can I modify the artwork?', 'a' => 'Yes, modifications are permitted under the licensing terms.'],
+                ['q' => 'What happens if I need additional usage rights later?', 'a' => 'You can purchase a new license if you need more rights.'],
+                ['q' => 'Do you offer discounts for bulk licensing?', 'a' => 'No, each license is priced individually.']
+            ] as $index => $item)
+                <div class="border border-none shadow rounded-lg overflow-hidden ">
+                    <input type="checkbox" id="faq-{{ $index }}" class="hidden peer">
+                    <label for="faq-{{ $index }}"
+                           class="bg-white block px-6 py-4 cursor-pointer font-medium transition-colors duration-300 peer-checked:border-l-4 peer-checked:border-white">
+                        {{ $item['q'] }}
+                    </label>
+                    <div class="max-h-0 overflow-hidden text-sm px-6 transition-all duration-500 ease-in-out peer-checked:max-h-40 peer-checked:py-4 bg-white">
+                        {{ $item['a'] }}
+                    </div>
                 </div>
-                <div class="collapse-content text-sm">
-                    Click the "Sign Up" button at the top right corner and complete the registration form.
-                </div>
-            </div>
-
-            <div class="collapse bg-base-100 border border-base-300 rounded-lg">
-                <input type="radio" name="my-accordion-1" />
-                <div class="collapse-title font-semibold cursor-pointer">
-                    What design tools do you support?
-                </div>
-                <div class="collapse-content text-sm">
-                    We support Figma, Sketch, Adobe XD, and Photoshop file formats for upload and collaboration.
-                </div>
-            </div>
-
-            <div class="collapse bg-base-100 border border-base-300 rounded-lg">
-                <input type="radio" name="my-accordion-1" />
-                <div class="collapse-title font-semibold cursor-pointer">
-                    Can I collaborate with my team on projects?
-                </div>
-                <div class="collapse-content text-sm">
-                    Yes, our platform allows real-time collaboration with team members and clients.
-                </div>
-            </div>
-
-            <div class="collapse bg-base-100 border border-base-300 rounded-lg">
-                <input type="radio" name="my-accordion-1" />
-                <div class="collapse-title font-semibold cursor-pointer">
-                    How do I reset my password?
-                </div>
-                <div class="collapse-content text-sm">
-                    Click "Forgot Password" on the login page and follow the instructions sent to your email.
-                </div>
-            </div>
-
-            <div class="collapse bg-base-100 border border-base-300 rounded-lg">
-                <input type="radio" name="my-accordion-1" />
-                <div class="collapse-title font-semibold cursor-pointer">
-                    Is there a free trial available?
-                </div>
-                <div class="collapse-content text-sm">
-                    Yes, we offer a 14-day free trial with access to all premium features.
-                </div>
-            </div>
-
-            <div class="collapse bg-base-100 border border-base-300 rounded-lg">
-                <input type="radio" name="my-accordion-1" />
-                <div class="collapse-title font-semibold cursor-pointer">
-                    How do I upgrade or cancel my subscription?
-                </div>
-                <div class="collapse-content text-sm">
-                    You can manage your subscription from your account settings under "Billing".
-                </div>
-            </div>
-
-            <div class="collapse bg-base-100 border border-base-300 rounded-lg">
-                <input type="radio" name="my-accordion-1" />
-                <div class="collapse-title font-semibold cursor-pointer">
-                    Can I export my designs?
-                </div>
-                <div class="collapse-content text-sm">
-                    Yes, designs can be exported in multiple formats including PNG, SVG, and PDF.
-                </div>
-            </div>
-
-            <div class="collapse bg-base-100 border border-base-300 rounded-lg">
-                <input type="radio" name="my-accordion-1" />
-                <div class="collapse-title font-semibold cursor-pointer">
-                    Do you provide design templates?
-                </div>
-                <div class="collapse-content text-sm">
-                    Yes, we offer a library of customizable templates for various design needs.
-                </div>
-            </div>
-
-            <div class="collapse bg-base-100 border border-base-300 rounded-lg">
-                <input type="radio" name="my-accordion-1" />
-                <div class="collapse-title font-semibold cursor-pointer">
-                    How do I share my designs with clients?
-                </div>
-                <div class="collapse-content text-sm">
-                    You can share a secure link directly from your project dashboard for client review and feedback.
-                </div>
-            </div>
-
-            <div class="collapse bg-base-100 border border-base-300 rounded-lg">
-                <input type="radio" name="my-accordion-1" />
-                <div class="collapse-title font-semibold cursor-pointer">
-                    Is my design data secure?
-                </div>
-                <div class="collapse-content text-sm">
-                    Absolutely, we use industry-standard encryption and security protocols to protect your data.
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </div>

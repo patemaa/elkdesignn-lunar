@@ -1,4 +1,5 @@
 <section>
+    <h2 class="text-3xl font-bold mb-4">You may also like</h2>
     <div class="swiper" id="slider1">
         <div class="swiper-wrapper">
             @foreach ($images as $image)

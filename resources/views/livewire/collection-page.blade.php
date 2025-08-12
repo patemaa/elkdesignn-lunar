@@ -10,5 +10,9 @@
             @empty
             @endforelse
         </div>
+
+        <div class="max-w-(--breakpoint-2xl) mx-auto mt-10">
+            <livewire:slider type="recently-viewed" />
+        </div>
     </div>
 </section>

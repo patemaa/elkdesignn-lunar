@@ -218,10 +218,15 @@
         <x-features/>
         <x-faq/>
 
-        <div class="max-w-(--breakpoint-2xl) mx-auto">
-            <div class="text-3xl text-center mb-4 justify-items-center font-bold mt-10">
-                You may also like
-            </div>
+        @php
+            \App\Livewire\Slider::addProductToRecentlyViewed($this->product->id);
+        @endphp
+
+        <div class="max-w-(--breakpoint-2xl) mx-auto mt-10">
+            <livewire:slider type="recently-viewed" />
+        </div>
+
+        <div class="max-w-(--breakpoint-2xl) mx-auto mt-10">
             <livewire:slider type="image-slider"/>
         </div>
     </div>

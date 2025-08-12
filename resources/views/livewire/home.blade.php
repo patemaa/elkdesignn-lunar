@@ -3,18 +3,20 @@
 
     <livewire:slider />
 
+    <div class="max-w-screen-2xl px-4 py-12 mx-auto space-y-8 sm:px-6 lg:px-8">
 
-    <div class="max-w-(--breakpoint-2xl) px-4 py-12 mx-auto space-y-3 sm:px-6 lg:px-8">
         @if ($this->saleCollection)
             <x-collection-sale />
         @endif
 
+        <!-- Collections Başlık -->
         <section>
-            <div class="text-3xl text-center uppercase justify-items-center mt-15 mb-5">
+            <div class="text-2xl sm:text-3xl text-center uppercase mt-10 mb-6 tracking-wide">
                 Collections
             </div>
 
-            <div class="grid grid-cols-2">
+            <!-- Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-3">
                 @foreach ($collectionGroups as $group)
                     @foreach ($group->collections as $collection)
                         @php
@@ -22,30 +24,36 @@
                             $imageUrl = $randomProduct?->thumbnail?->getUrl();
                         @endphp
 
-                        <a href="/collections/{{ $collection->defaultUrl?->slug }}" class="block group relative overflow-hidden rounded-xl aspect-[1/1]">
+                        <a href="/collections/{{ $collection->defaultUrl?->slug }}"
+                           class="block group relative overflow-hidden rounded-xl aspect-square">
                             @if ($imageUrl)
                                 <img src="{{ $imageUrl }}"
                                      alt="{{ $collection->translate('name') }}"
-                                     class="w-full h-full object-cover transition-transform duration-600 scale-105 group-hover:scale-120" />
+                                     class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
 
-                                <div class="absolute inset-0 bg-black/50 hover:bg-black/10 transition duration-300 flex items-center justify-center px-4 text-white text-center">
-                                    <h3 class="text-lg sm:text-6xl font-semibold uppercase">{{ $collection->translateAttribute('name') }}</h3>
+                                <div class="absolute inset-0 bg-black/50 hover:bg-black/20 transition duration-300 flex items-center justify-center px-4 text-white text-center">
+                                    <h3 class="text-lg sm:text-2xl md:text-7xl font-semibold uppercase">{{ $collection->translateAttribute('name') }}</h3>
                                 </div>
                             @else
                                 <div class="w-full flex items-center justify-center text-gray-500"></div>
                                 <div class="absolute inset-0 bg-black/20 hover:bg-black/10 transition duration-300 flex items-center justify-center px-4 text-white text-center">
-                                    <h3 class="text-lg sm:text-6xl font-semibold uppercase">{{ $collection->translateAttribute('name') }}</h3>
+                                    <h3 class="text-lg sm:text-2xl md:text-4xl font-semibold uppercase">{{ $collection->translateAttribute('name') }}</h3>
                                 </div>
                             @endif
                         </a>
                     @endforeach
                 @endforeach
             </div>
-
         </section>
-            <div class="text-3xl text-center mb-4 justify-items-center font-bold mt-10">
-                Creator's Choice
-            </div>
-            <livewire:slider type="image-slider" />
+
+        <!-- Recently Viewed Slider -->
+        <div class="mt-16">
+            <livewire:slider type="recently-viewed" />
+        </div>
+
+        <!-- Image Slider -->
+        <div class="mt-12">
+            <livewire:slider type="image-slider"/>
+        </div>
     </div>
 </div>

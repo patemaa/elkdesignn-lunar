@@ -261,7 +261,7 @@
 
 .progress-fill {
     height: 100%;
-    background: linear-gradient(90deg, #091427, #040b1e);
+    background: linear-gradient(90deg, #1c1d1e, #7b7d85);
     width: 0;
     transition: width 0.4s ease;
 }
@@ -340,7 +340,7 @@
 }
 
 .indicator.active {
-    background: linear-gradient(135deg, #081222, #040c22);
+    background: linear-gradient(135deg, #464849, #333131);
     transform: scale(1.2);
 }
 
