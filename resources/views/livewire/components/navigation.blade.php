@@ -42,7 +42,6 @@
             <x-header.search class="max-w-sm mr-4" />
 
             <div class="flex items-center -mr-2 sm:-mr-4 lg:mr-0">
-{{--                <x-account/>--}}
 
                 @livewire('components.cart')
 
@@ -81,10 +80,6 @@
                                     </a>
                                 </li>
                             @endforeach
-                                <hr>
-                                <li class="flex font-medium text-sm">
-                                    <a href="/login">Login</a>
-                                </li>
                         </ul>
                     </div>
                 </div>

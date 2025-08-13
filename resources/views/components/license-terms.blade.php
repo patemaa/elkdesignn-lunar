@@ -40,21 +40,20 @@
             <hr>
 
             <div>
-                <p class="text-bold">Prohibited Use Cases</p>
+                <p class="font-bold">Prohibited Use Cases</p>
                 <ul>
-                    <li><strong>Non-Transferable:</strong> The license is for the buyer only. It cannot be transferred to others.</li>
-                    <li><strong>Digital Products:</strong> Cannot be used on digital platforms (social media, websites, etc.).</li>
-                    <li><strong>Print On-Demand:</strong> Not allowed on platforms like Zazzle, Redbubble, etc.</li>
-                    <li><strong>Copyright:</strong> You cannot claim the artwork as your own copyrighted work.</li>
-                    <li><strong>Resale:</strong> The original or modified versions cannot be resold.</li>
-                    <li><strong>Intermediaries:</strong> You must be the final manufacturer of the product.</li>
-                    <li><strong>False Ownership:</strong> You cannot claim authorship of the artwork.</li>
+                    <li>■ Non-Transferable: The license is for the buyer only. It cannot be transferred to others.</li>
+                    <li>■ Digital Products: Cannot be used on digital platforms (social media, websites, etc.).</li>
+                    <li>■ Print On-Demand: Not allowed on platforms like Zazzle, Redbubble, etc.</li>
+                    <li>■ Copyright: You cannot claim the artwork as your own copyrighted work.</li>
+                    <li>■ Resale: The original or modified versions cannot be resold.</li>
+                    <li>■ Intermediaries: You must be the final manufacturer of the product.</li>
+                    <li>■ False Ownership: You cannot claim authorship of the artwork.</li>
                 </ul>
+                <p class="text-sm">
+                    <em>If in doubt about a specific use case, please contact me for written permission.</em>
+                </p>
             </div>
-
-            <p>
-                <em>If in doubt about a specific use case, please contact me for written permission.</em>
-            </p>
         </div>
     </div>
 </dialog>

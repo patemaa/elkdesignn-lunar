@@ -64,20 +64,13 @@
                 <p class="text-xl mt-5">
                     Please choose a license type:
                 </p>
-                <div class="dropdown w-full">
-                    <label tabindex="0"
-                           class="btn w-full border border-black bg-white hover:bg-gray-100 flex px-6 py-8 rounded transition duration-300 justify-between cursor-pointer mt-4 text-xl">
-                        Please choose a license type:
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                             class="feather feather-chevron-down">
-                            <polyline points="6 9 12 15 18 9"></polyline>
-                        </svg>
-                    </label>
-                    <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-full mt-1">
-                        <li><a class="py-5 text-lg">Standard Commercial License</a></li>
-                        <li><a class="py-5 text-lg">Extended Commercial License</a></li>
-                    </ul>
+
+                <div class="w-full mt-4">
+                    <select class="w-full border border-black bg-white hover:bg-gray-100 px-5 font-semibold py-5 rounded transition duration-300 cursor-pointer text-xl focus:outline-none focus:ring-2 focus:ring-white">
+                        <option disabled selected>  Please choose a license type:</option>
+                        <option class="py-5 text-lg">Standard Commercial License</option>
+                        <option class="py-5 text-lg">Extended Commercial License</option>
+                    </select>
                 </div>
 
                 <form class="mt-4">
@@ -162,19 +155,18 @@
                             <p class="mt-6">
                                 In the context of digital patterns and design, "Infinitely Repeatable" and "Seamless
                                 Tile" refer to the ability to use a design multiple times without visible breaks or
-                                edges, creating a continuous pattern.
-
-                                <br>
+                                edges, creating continuous pattern.
                             </p>
+
                             <p class="font-bold mt-6"> Here's what each term means:</p>
 
                             <ul class="mt-6">
-                                <li> **Infinitely Repeatable: The design is specifically created to replicate itself
+                                <li>■ Infinitely Repeatable: The design is specifically created to replicate itself
                                     horizontally and vertically. When placed side by side, the edges align perfectly,
                                     ensuring the pattern flows continuously without interruptions.
                                 </li>
                                 <li class="mt-6">
-                                    **Seamless Tile: This means the design is a "tile" that can be duplicated
+                                    ■ Seamless Tile: This means the design is a "tile" that can be duplicated
                                     seamlessly.
                                     The edges of the tile are crafted to match perfectly with adjacent tiles, making the
                                     joins invisible. This is essential for applications like fabric, wallpaper, or web

@@ -16,6 +16,6 @@ class Collection extends LunarCollection
     {
         $product = $this->products()->with('media')->first();
 
-        return $product?->thumbnail?->getUrl('small') ?? null;
+        return $product?->thumbnail?->getUrl() ?? null;
     }
 }

@@ -28,4 +28,8 @@
             </div>
         </div>
     </section>
+@else
+    <div>
+        <p></p>
+    </div>
 @endif
