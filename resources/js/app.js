@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
         new Swiper('#slider1', {
             slidesPerView: 2,
             spaceBetween: 16,
-            loop: true,
+            loop: false,
             breakpoints: {
                 1024: {slidesPerView: 3},
                 768: {slidesPerView: 2},
@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
         new Swiper('#productImageSlider', {
             slidesPerView: 1,
             spaceBetween: 10,
-            loop: true,
+            loop: false,
             breakpoints: {
                 1024: {slidesPerView: 3},
                 768: {slidesPerView: 2},
@@ -209,17 +209,63 @@ class ImageSlider {
     }
 }
 
-// Preload images for better performance
-window.addEventListener('load', () => {
-    const images = [
-        'https://www.tashistudio.com/img/cms/Exclusive%20Arrivals_A%20(4).jpg',
-        'https://www.tashistudio.com/img/cms/Exclusive%20Arrivals_A%20(4).jpg',
-        'https://www.tashistudio.com/img/cms/Exclusive%20Arrivals_A%20(4).jpg',
-        'https://www.tashistudio.com/img/cms/Exclusive%20Arrivals_A%20(4).jpg',
-    ];
+Alpine.data('notificationCenter', () => ({
+    position: 'top-end', // 'top-start', 'top-end', 'bottom-start', 'bottom-end'
+    autoClose: true,
+    autoCloseDelay: 3000,
+    notifications: [],
+    nextId: 1,
 
-    images.forEach(src => {
-        const img = new Image();
-        img.src = src;
-    });
-});
+    init() {
+        window.addEventListener('show-notification', event => {
+            const { message, type, link } = event.detail;
+            this.triggerNotification(message, type, link);
+        });
+    },
+
+    transitionClasses: {
+        'x-transition:enter-start'() {
+            if (this.position === 'top-start' || this.position === 'bottom-start') {
+                return 'opacity-0 -translate-x-12 rtl:translate-x-12';
+            } else {
+                return 'opacity-0 translate-x-12 rtl:-translate-x-12';
+            }
+        },
+        'x-transition:leave-end'() {
+            if (this.position === 'top-start' || this.position === 'bottom-start') {
+                return 'opacity-0 -translate-x-12 rtl:translate-x-12';
+            } else {
+                return 'opacity-0 translate-x-12 rtl:-translate-x-12';
+            }
+        },
+    },
+
+    triggerNotification(message, type, link) {
+        this.playSound();
+
+        const id = this.nextId++;
+        this.notifications.push({ id, message, type, link, visible: false });
+
+        setTimeout(() => {
+            const index = this.notifications.findIndex(n => n.id === id);
+            if (index > -1) {
+                this.notifications[index].visible = true;
+            }
+        }, 30);
+
+        if (this.autoClose) {
+            setTimeout(() => this.dismissNotification(id), this.autoCloseDelay);
+        }
+    },
+
+    dismissNotification(id) {
+        const index = this.notifications.findIndex(n => n.id === id);
+        if (index > -1) {
+            this.notifications[index].visible = false;
+            setTimeout(() => {
+                this.notifications.splice(index, 1);
+            }, 300);
+        }
+    }
+}));
+

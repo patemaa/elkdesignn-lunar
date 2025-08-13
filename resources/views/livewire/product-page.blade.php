@@ -97,10 +97,10 @@
                         @endforeach
                     </div>
 
-                    <div class="text-xl mt-3">
-                        <x-product-price class="font-xl font-bold"
+
+                    <x-product-price class="font-xl font-bold"
                                          :variant="$this->variant"/>
-                    </div>
+
 
                     <div class=" mt-8">
                         <livewire:components.add-to-cart :purchasable="$this->variant"

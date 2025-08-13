@@ -1,6 +1,22 @@
 <div class="font-extrabold">
     <x-welcome-banner />
 
+    <x-notification/>
+
+    @if (session('notification'))
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                window.dispatchEvent(new CustomEvent('show-notification', {
+                    detail: {
+                        message: "{{ session('notification.message') }}",
+                        type: "{{ session('notification.type') }}",
+                        // İsteğe bağlı olarak 'link' ekleyebilirsiniz
+                    }
+                }));
+            });
+        </script>
+    @endif
+
     <livewire:slider />
 
     <div class="max-w-screen-2xl px-4 py-12 mx-auto space-y-8 sm:px-6 lg:px-8">
