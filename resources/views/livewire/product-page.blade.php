@@ -61,26 +61,50 @@
                 </button>
                     <x-license-terms/>
 
-                <p class="text-xl mt-5">
-                    Please choose a license type:
-                </p>
-
-                <div class="w-full mt-4">
-                    <select class="w-full border border-black bg-white hover:bg-gray-100 px-5 font-semibold py-5 rounded transition duration-300 cursor-pointer text-xl focus:outline-none focus:ring-2 focus:ring-white">
-                        <option disabled selected>  Please choose a license type:</option>
-                        <option class="py-5 text-lg">Standard Commercial License</option>
-                        <option class="py-5 text-lg">Extended Commercial License</option>
-                    </select>
-                </div>
-
                 <form class="mt-4">
-                    <x-product-price class="ml-4 font-xl font-bold"
-                                     :variant="$this->variant"/>
+                    <div class="space-y-4">
+                        @foreach ($this->productOptions as $option)
+                            <fieldset>
+                                <legend class="text-lg font-medium text-gray-700">
+                                    {{ $option['option']->translate('name') }}
+                                </legend>
+
+                                <div class="flex gap-2 mt-2 text-sm tracking-wide uppercase"
+                                     x-data="{
+                                         selectedOption: @entangle('selectedOptionValues').live,
+                                         selectedValues: [],
+                                     }"
+                                     x-init="selectedValues = Object.values(selectedOption);
+                                     $watch('selectedOption', value =>
+                                         selectedValues = Object.values(selectedOption)
+                                     )">
+                                    @foreach ($option['values'] as $value)
+                                        <button class="px-6 py-4 font-medium border rounded-lg focus:outline-none focus:ring w-full "
+                                                type="button"
+                                                wire:click="
+                                                $set('selectedOptionValues.{{ $option['option']->id }}', {{ $value->id }})
+                                            "
+                                                :class="{
+                                                    'bg-black/80 border-black/80 text-white hover:bg-black/70 cursor-pointer transition duration-300': selectedValues
+                                                        .includes({{ $value->id }}),
+                                                    'cursor-pointer transition duration-300 hover:bg-gray-100': !selectedValues.includes({{ $value->id }})
+                                                }">
+                                            {{ $value->translate('name') }}
+                                        </button>
+                                    @endforeach
+                                </div>
+                            </fieldset>
+                        @endforeach
+                    </div>
+
+                    <div class="text-xl mt-3">
+                        <x-product-price class="font-xl font-bold"
+                                         :variant="$this->variant"/>
+                    </div>
 
                     <div class=" mt-8">
                         <livewire:components.add-to-cart :purchasable="$this->variant"
-                                                         :wire:key="$this->variant->id"/>
-
+                                                         :wire:key="$this->variant->id">
                     </div>
                 </form>
                 <div class="font-normal">

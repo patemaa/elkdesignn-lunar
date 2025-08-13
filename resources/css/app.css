@@ -81,18 +81,10 @@
     display: block;
 }
 
-
-
-
-
-
-
-
-
 .slider-center-wrapper {
     display: flex;
-    justify-content: center; /* yatay ortalar */
-    align-items: center; /* dikey ortalar */
+    justify-content: center;
+    align-items: center;
 }
 
 .image-slider-container {
@@ -283,9 +275,6 @@
 }
 
 @media (max-width: 480px) {
-    body {
-        padding: 10px;
-    }
 
     .image-slider-container {
         height: 60vh;
